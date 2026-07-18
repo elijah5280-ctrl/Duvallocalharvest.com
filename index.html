@@ -87,7 +87,7 @@
   .btn-ghost:hover{border-color:var(--gold-soft)}
 
   /* ── THE LOOP (signature) ── */
-  .loop-sec{background:var(--sage-sec)}
+  .loop-sec{background:var(--cream)}
   .sec-head{text-align:center;max-width:60ch;margin:0 auto 54px}
   .sec-head h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:16px}
   .sec-head p{color:var(--muted);font-size:17px}
@@ -116,7 +116,7 @@
   }
   .loop-note{
     max-width:62ch;margin:44px auto 0;text-align:center;
-    background:var(--panel);border:1px solid rgba(46,74,52,.10);border-radius:14px;padding:22px 26px;
+    background:var(--sage);border-radius:14px;padding:22px 26px;
     color:var(--forest-deep);font-size:15.5px;
   }
   @media(max-width:760px){
@@ -128,10 +128,10 @@
   }
 
   /* ── THE GAP (problem) ── */
-  .gap-sec{background:transparent;border-top:1px solid rgba(46,74,52,.07)}
+  .gap-sec{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
   .card{
-    background:var(--panel);border:1px solid rgba(46,36,25,.05);border-radius:16px;padding:30px 26px;box-shadow:0 1px 2px rgba(46,36,25,.03),0 10px 26px rgba(46,36,25,.05);
+    background:var(--card);border-radius:16px;padding:30px 26px;
   }
   .card-ic{
     width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
@@ -147,7 +147,7 @@
   @media(max-width:760px){.cards3{grid-template-columns:1fr}}
 
   /* ── SORT SURPLUS ── */
-  .sort-sec{background:transparent;border-top:1px solid rgba(46,74,52,.07)}
+  .sort-sec{background:var(--cream)}
   .lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
   .lane{border-radius:16px;padding:30px 26px}
   .lane.feeds{background:var(--sage)}
@@ -171,7 +171,7 @@
   @media(max-width:760px){.lanes{grid-template-columns:1fr}}
 
   /* ── PHOTO BAND ── */
-  .photos-sec{background:transparent;border-top:1px solid rgba(46,74,52,.07)}
+  .photos-sec{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
   .photo{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--card)}
   .photo-img{width:100%;height:100%;object-fit:cover}
@@ -185,25 +185,11 @@
   .photo-cap{text-align:center;color:var(--muted);font-size:14px;margin-top:22px;font-style:italic}
   @media(max-width:760px){.photo-grid{grid-template-columns:1fr}}
 
-  /* ── ACCOUNTABILITY ── */
-  .metric-sec{background:transparent;border-top:1px solid rgba(46,74,52,.07)}
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
-  .metric{background:var(--sage);border-radius:14px;padding:26px 22px;text-align:center}
-  .metric-ic{width:48px;height:48px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
-  .metric-ic svg{width:22px;height:22px;fill:#fff;stroke:#fff}
-  .metric h3{font-size:17px;margin-bottom:5px}
-  .metric span{font-size:13px;color:var(--muted)}
-  .metrics-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
-  .metric.wide{background:var(--card);display:flex;align-items:center;gap:16px;text-align:left}
-  .metric.wide .metric-ic{margin:0;background:var(--gold);flex:0 0 auto}
-  .metric.wide h3{margin-bottom:2px}
-  .metric-foot{text-align:center;color:var(--muted);font-size:14.5px;margin-top:26px;font-style:italic}
-  @media(max-width:760px){.metrics{grid-template-columns:1fr}.metrics-2{grid-template-columns:1fr}.metric.wide{text-align:left}}
 
   /* ── GROUNDED ── */
-  .proof-sec{background:var(--sage-sec)}
+  .proof-sec{background:var(--white);border-top:1px solid var(--line)}
   .proofs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
-  .proof{background:var(--panel);border:1px solid rgba(46,36,25,.05);border-radius:16px;padding:32px 28px;box-shadow:0 1px 2px rgba(46,36,25,.03),0 10px 26px rgba(46,36,25,.05)}
+  .proof{background:var(--card);border-radius:16px;padding:32px 28px}
   .proof .num{font-family:'Playfair Display',serif;font-weight:700;font-size:38px;color:var(--gold);line-height:1;margin-bottom:12px;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;letter-spacing:-.5px}
   .proof p{font-size:15px;color:var(--muted)}
   .proof p b{color:var(--forest-deep)}
@@ -404,45 +390,6 @@
   </div>
 </section>
 
-<!-- ═══════════════ ACCOUNTABILITY ═══════════════ -->
-<section class="metric-sec">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Accountability</div>
-      <h2>How we measure it</h2>
-      <p>Every pound is logged, so the impact is a number — not a claim.</p>
-    </div>
-    <div class="metrics reveal">
-      <div class="metric">
-        <div class="metric-ic"><svg viewBox="0 0 24 24"><path d="M7 8h10l-1.5 11h-7L7 8zm2-2a3 3 0 016 0" fill="none" stroke="#fff" stroke-width="1.8"/></svg></div>
-        <h3>Pounds diverted</h3>
-        <span>total kept from landfill</span>
-      </div>
-      <div class="metric">
-        <div class="metric-ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M4 12h4l-2 5-2-5zm12 0h4l-2 5-2-5z" fill="none" stroke="#fff" stroke-width="1.6"/></svg></div>
-        <h3>Where it went</h3>
-        <span>people · compost · landfill</span>
-      </div>
-      <div class="metric">
-        <div class="metric-ic"><svg viewBox="0 0 24 24"><path d="M12 21V11M12 13C12 9 9 7 5 7c0 4 3 6 7 6ZM12 11c0-3 2.5-5 6-5 0 3.5-2.5 5-6 5Z" fill="none" stroke="#fff" stroke-width="1.7"/></svg></div>
-        <h3>CO&#8322;e avoided</h3>
-        <span>carbon, the funder's units</span>
-      </div>
-    </div>
-    <div class="metrics-2 reveal">
-      <div class="metric wide">
-        <div class="metric-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="16" cy="9" r="2.4" fill="none" stroke="#fff" stroke-width="1.7"/><path d="M4 19c0-3 2.5-5 5-5s5 2 5 5M14 19c0-2 1-4 3.5-4S21 17 21 19" fill="none" stroke="#fff" stroke-width="1.7"/></svg></div>
-        <div><h3>Meals provided</h3><span>pounds recovered, converted to meals</span></div>
-      </div>
-      <div class="metric wide">
-        <div class="metric-ic"><svg viewBox="0 0 24 24"><path d="M4 18L10 12l4 4 6-7M14 9h6v6" fill="none" stroke="#fff" stroke-width="1.7"/></svg></div>
-        <div><h3>Waste per cover</h3><span>the number that proves prevention</span></div>
-      </div>
-    </div>
-    <p class="metric-foot reveal">Reported in the funder's exact units — the same spine city programs use, built on ReFED's metrics.</p>
-  </div>
-</section>
-
 <!-- ═══════════════ GROUNDED ═══════════════ -->
 <section class="proof-sec">
   <div class="wrap">
@@ -477,7 +424,7 @@
     <a href="mailto:elijah@86nothing.app">elijah@86nothing.app</a>
   </div>
   <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
-  <div class="site-version">Duval Local Harvest · Apple 1.2</div>
+  <div class="site-version">Duval Local Harvest · Apple 1.4</div>
 </section>
 
 <script>
