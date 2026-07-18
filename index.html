@@ -224,6 +224,7 @@
   .contact .role{color:#B9C7AE;font-size:14px;margin-bottom:4px}
   .contact a{color:var(--gold-soft);text-decoration:none;font-size:14px}
   .contact a:hover{text-decoration:underline}
+  .site-version{margin-top:28px;font-size:11px;letter-spacing:.08em;color:rgba(234,240,224,.30)}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -246,11 +247,6 @@
   <div class="hero-tag">Good food. Stronger community.</div>
   <h1>Local food, moving the way it should — and edible surplus feeding people, <em>not landfills.</em></h1>
   <p class="hero-sub">Connecting Duval County's farms, restaurants, and food recovery — starting in Riverside.</p>
-  <div class="hero-cta">
-    <a class="btn btn-primary" href="#how">See how it works</a>
-    <!-- This links to your farmer app. It goes live once duvallocalharvest.app is pointed at the farm poster. -->
-    <a class="btn btn-ghost" href="https://duvallocalharvest.app">Farms: post your surplus</a>
-  </div>
 </header>
 
 <!-- ═══════════════ THE LOOP ═══════════════ -->
@@ -386,40 +382,25 @@
 </section>
 
 <!-- ═══════════════ PHOTO BAND ═══════════════
-     HOW TO ADD A PHOTO:
-       1. Create a folder called "photos" in your repo and upload your image (e.g. photos/farm-stand.jpg).
-       2. Replace one placeholder <figure>...</figure> below with:
-          <figure class="photo"><img class="photo-img" src="photos/farm-stand.jpg" alt="A local farm stand"></figure>
-     The placeholders are styled so the page still looks finished before you add photos.
+     This whole section stays HIDDEN on the live site until you add photos, so
+     nothing shows publicly until you're ready — no placeholder boxes, no broken
+     images. To add photos (no code editing needed):
+       1. Create a folder called "photos" in this repo.
+       2. Upload up to three images named exactly: farms.jpg, kitchen.jpg, recovery.jpg
+          (or edit the src="photos/..." filenames below to match your own filenames).
+     Each photo appears on its own the moment its file exists in the photos folder.
 -->
-<section class="photos-sec">
+<section class="photos-sec" id="photos-section" style="display:none">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">On the ground</div>
       <h2>Real food, real neighborhood</h2>
     </div>
     <div class="photo-grid reveal">
-
-      <figure class="photo photo-empty">
-        <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-        <span class="pl">The farms</span>
-        <small>replace with your photo</small>
-      </figure>
-
-      <figure class="photo photo-empty">
-        <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-        <span class="pl">The kitchen</span>
-        <small>replace with your photo</small>
-      </figure>
-
-      <figure class="photo photo-empty">
-        <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-        <span class="pl">The recovery</span>
-        <small>replace with your photo</small>
-      </figure>
-
+      <figure class="photo"><img class="photo-img" src="photos/farms.jpg" alt="Local farms" onload="document.getElementById('photos-section').style.display=''" onerror="this.parentElement.remove()"></figure>
+      <figure class="photo"><img class="photo-img" src="photos/kitchen.jpg" alt="In the kitchen" onload="document.getElementById('photos-section').style.display=''" onerror="this.parentElement.remove()"></figure>
+      <figure class="photo"><img class="photo-img" src="photos/recovery.jpg" alt="Food recovery" onload="document.getElementById('photos-section').style.display=''" onerror="this.parentElement.remove()"></figure>
     </div>
-    <p class="photo-cap reveal">Swap in your own photos of the farms, the food, and the pickups — the real proof of the loop.</p>
   </div>
 </section>
 
@@ -488,15 +469,15 @@
   <h2>Local food, moving the way it should.</h2>
   <p class="lead">Proven first in Riverside. Built by an operator, for operators.</p>
   <div class="close-cta">
-    <a class="btn btn-light" href="https://duvallocalharvest.app">Farms: post your surplus</a>
     <a class="btn btn-outline" href="mailto:elijah@86nothing.app">Get in touch</a>
   </div>
   <div class="contact">
     <div class="name">Elijah Acquafredda-Smith</div>
-    <div class="role">Managing Partner &amp; General Manager · The Restaurant In Riverside</div>
-    <div class="role">1251 King Street, Jacksonville</div>
+    <div class="role">Founder, Duval Local Harvest</div>
     <a href="mailto:elijah@86nothing.app">elijah@86nothing.app</a>
   </div>
+  <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
+  <div class="site-version">Duval Local Harvest · Apple 1.0</div>
 </section>
 
 <script>
