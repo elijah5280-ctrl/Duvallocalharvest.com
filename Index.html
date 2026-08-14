@@ -196,6 +196,46 @@
   .proof-foot{text-align:center;color:var(--muted);font-size:14.5px;margin-top:26px;max-width:64ch;margin-left:auto;margin-right:auto}
   @media(max-width:760px){.proofs{grid-template-columns:1fr}}
 
+  /* ── SEASONAL CALENDAR ── */
+  .season-sec{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .season-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px}
+  .season-tab{
+    background:var(--card);color:var(--forest);border:1px solid var(--line);
+    border-radius:999px;padding:9px 18px;font:inherit;font-size:14px;font-weight:600;
+    cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease;
+  }
+  .season-tab:hover{border-color:var(--gold-soft)}
+  .season-tab[aria-selected="true"]{background:var(--forest);color:#fff;border-color:var(--forest)}
+  .season-head{text-align:center;margin-bottom:24px}
+  .season-head h3{font-family:'Playfair Display',Georgia,serif;font-size:28px;color:var(--forest);margin-bottom:8px}
+  .season-badge{
+    display:inline-block;background:var(--gold);color:#fff;border-radius:5px;
+    padding:3px 10px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  }
+  .season-group{margin-bottom:26px}
+  .season-group .glabel{
+    font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:12px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    background:var(--sage);color:var(--forest-deep);border-radius:999px;
+    padding:6px 14px;font-size:13.5px;
+  }
+  .chip.sea{background:var(--card);color:var(--navy)}
+  .season-note{
+    margin-top:26px;display:flex;gap:16px;align-items:flex-start;
+    background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:22px 26px;
+  }
+  .season-note svg{width:26px;height:26px;flex:0 0 auto;fill:var(--gold);margin-top:2px}
+  .season-note p{font-size:14.5px;color:var(--muted)}
+  .season-note b{color:var(--forest-deep)}
+  @media(max-width:640px){.season-tab{padding:8px 14px;font-size:13px}.season-head h3{font-size:23px}}
+
+  /* ── FREE TO GARDEN ACT ── */
+  .ftga-sec{background:var(--cream);border-top:1px solid var(--line)}
+  .ftga-cta{text-align:center;margin-top:30px}
+
   /* ── CLOSING ── */
   .close-sec{background:var(--forest-deep);color:#EAF0E0;text-align:center;padding:80px 24px}
   .close-sec h2{font-size:clamp(26px,4vw,40px);color:#fff;max-width:20ch;margin:0 auto 20px}
@@ -414,6 +454,74 @@
   </div>
 </section>
 
+<!-- ═══════════════ SEASONAL CALENDAR ═══════════════ -->
+<section class="season-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The growing calendar</div>
+      <h2>What's actually in season here</h2>
+      <p>Northeast Florida runs on an inverted calendar &mdash; our hardest month is August, not January, and greens are a winter crop. Six two-month blocks, because a season here turns over faster than a quarter.</p>
+    </div>
+    <div id="season-body" class="reveal">
+      <noscript><p style="text-align:center;color:var(--muted)">Enable JavaScript to browse the seasonal calendar.</p></noscript>
+    </div>
+    <div class="season-note reveal">
+      <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
+      <p><b>A calendar, not a guarantee.</b> This is what the region grows and lands in a typical year &mdash; weather, acreage and a given farm's planting decide what's actually available in any given week. Seafood entries reflect regional harvest windows, not crops. Always confirm with the grower before you print it on a menu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FREE TO GARDEN ACT ═══════════════ -->
+<section class="ftga-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Where we stand</div>
+      <h2>Jacksonville's gardens are legal in spirit, not in code</h2>
+      <p>Jacksonville's Comprehensive Plan says the city shall encourage community gardens. Its zoning code doesn't define them, doesn't list them, and offers no ordinary path to permit one.</p>
+    </div>
+
+    <div class="cards3 reveal">
+      <div class="card">
+        <div class="card-ic" style="background:var(--forest)">
+          <svg viewBox="0 0 24 24"><path d="M12 21V11M12 13C12 9 9 7 5 7c0 4 3 6 7 6ZM12 11c0-3 2.5-5 6-5 0 3.5-2.5 5-6 5Z" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Since 1977</h3>
+        <p>The UF/IFAS Extension community garden has provided plots to Jacksonville residents for decades — without legal standing under the zoning code.</p>
+      </div>
+      <div class="card">
+        <div class="card-ic" style="background:var(--gold)">
+          <svg viewBox="0 0 24 24"><path d="M4 9l8-4 8 4-8 4-8-4zM4 9v6l8 4 8-4V9" fill="none" stroke="#fff" stroke-width="1.7"/></svg>
+        </div>
+        <h3>2010 &rarr; 2014</h3>
+        <p>Clara White Mission started Eartha's Farm &amp; Market as a market garden in 2010 and didn't secure a Certificate of Use until 2014. Eartha's is one of our partner farms.</p>
+      </div>
+      <div class="card">
+        <div class="card-ic" style="background:#5B4A32">
+          <svg viewBox="0 0 24 24"><path d="M4 8h16l-1.5 11H5.5L4 8zm3 0V6a5 5 0 0110 0v2" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Two years, $50,000</h3>
+        <p>Overalls Farm Three in Springfield spent two years, three citations and more than $50,000 in lost revenue getting its Certificate of Use — and won it in January 2026.</p>
+      </div>
+    </div>
+
+    <div class="banner reveal"><b>Duval Local Harvest supports the Free to Garden Act.</b> We source from farms that have paid this price. Growing food with and for your neighbors shouldn't be this hard.</div>
+
+    <div class="legal reveal">
+      <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
+      <p><b>What the act does.</b> The Free to Garden Act is a proposed zoning ordinance that would make community gardens, market gardens, farmstands and on-site sales of what's grown on-site permissible by right in Jacksonville — with standards for hours, noise, odor, lighting and scale so gardens stay good neighbors. It was drafted over three years by the Duval Food Policy Council, the Duval Ag Council and Blue Zones Project Jacksonville, with research from UF/IFAS Extension, and revised by the Springfield Preservation and Revitalization Council to protect neighborhood interests.</p>
+    </div>
+
+    <div class="ftga-cta reveal">
+      <span class="hero-cta">
+        <a class="btn btn-primary" href="https://www.justfood.network/freetogardenact" target="_blank" rel="noopener">Read the act</a>
+        <a class="btn btn-ghost" href="https://overalls.life/pages/petition" target="_blank" rel="noopener">Sign the petition</a>
+      </span>
+    </div>
+    <p class="proof-foot reveal">The coalition also organizes speakers for public comment at City Council and publishes a contact sheet for council members — both linked from the campaign page above.</p>
+  </div>
+</section>
+
 <!-- ═══════════════ CLOSING ═══════════════ -->
 <section class="close-sec">
   <h2>Local food, moving the way it should.</h2>
@@ -432,7 +540,7 @@
     </div>
   </div>
   <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
-  <div class="site-version">Duval Local Harvest · Apple 1.8</div>
+  <div class="site-version">Duval Local Harvest · Apple 2.1</div>
 </section>
 
 <script>
@@ -445,6 +553,68 @@
     },{threshold:0.12});
     els.forEach(function(e){io.observe(e)});
   })();
+</script>
+<script>
+/* Seasonal calendar - Northeast Florida (Zone 9a), six two-month blocks.
+   Static reference data: the growing calendar does not shift year to year.
+   REGION is explicit - this data is NOT valid outside NE Florida. */
+(function(){
+  'use strict';
+  var REGION = 'Northeast Florida';
+  var DATA = [{"key":"jan_feb","label":"January – February","short":"Jan–Feb","months":[1,2],"produce":["Arugula","Beans","Beets","Blood oranges","Bok choy","Braising mix","Broccoli","Broccoli raab","Brussels sprouts","Butternut squash","Cabbage","Calamondins","Carrots","Cauliflower","Chard","Chestnuts","Chinese spinach","Chives","Cilantro","Collards","Cress","Curry leaf","Dill","Endive","Escarole","Fennel","Grapefruits","Green onions","Kale","Kohlrabi","Kumquats","Lemons","Lettuce","Limes","Loquats","Microgreens","Mizuna","Mushrooms","Mustard greens","Napa cabbage","Onions","Oranges","Oregano","Parsley","Pomelos","Pumpkins","Radicchio","Radishes","Rosemary","Rutabagas","Salad mix","Satsumas","Sorrel","Spinach","Strawberries","Sweet potatoes","Swiss chard","Tangelos","Tangerines","Thyme","Turnips","Winter squash"],"seafood":["Amberjack","Catfish","Cobia","Drum","Flounder","Grouper","Mahi-Mahi","Oysters","Pompano","Snapper","Striped Bass","Tuna","Wahoo"]},{"key":"mar_apr","label":"March – April","short":"Mar–Apr","months":[3,4],"produce":["Arugula","Basil","Beans","Beets","Blueberries","Bok choy","Broccoli","Broccoli raab","Brussels sprouts","Cabbage","Carrots","Cauliflower","Celery","Chard","Chives","Cilantro","Collards","Corn","Cress","Cucumbers","Daikon radishes","Dill","Endive","Escarole","Fennel","Garlic chives","Grapefruit","Green onions","Kale","Kohlrabi","Kumquats","Leeks","Loquats","Mizuna","Mulberries","Mushrooms","Mustard greens","Nasturtium flowers","Onions","Oregano","Parsley","Peas","Potatoes","Radicchio","Radishes","Rosemary","Rutabagas","Salad mix","Sorrel","Spinach","Strawberries","Swiss chard","Thyme","Turnips"],"seafood":["Amberjack","Bass","Blue Crabs","Bluegill","Catfish","Cobia","Crappie","Drum","Flounder","Lionfish","King Mackerel","Spanish Mackerel","Mullet","Pompano","Shrimp (March only)","Snapper","Stone Crab","Sunfish","Triggerfish","Tuna","Wahoo"]},{"key":"may_jun","label":"May – June","short":"May–Jun","months":[5,6],"produce":["Basil","Beans","Beets","Blackberries","Blueberries","Bok choy","Broccoli","Broccoli raab","Cabbage","Cantaloupe","Carrots","Cauliflower","Celery","Chard","Chives","Cilantro","Collards","Corn","Cucumbers","Curry leaf","Daikon radishes","Dill","Eggplant","Kale","Lemongrass","Marjoram","Mint","Mizuna","Moringa","Mulberries","Mushrooms","Nectarines","Okinawa spinach","Okra","Onions","Oregano","Pawpaw","Peaches","Peanuts","Peas","Peppers","Potatoes","Radishes","Red orach","Rosemary","Salad mix","Shiso","Thyme","Tomatoes","Turnips","Watermelon"],"seafood":["Black sea bass","Blueline tilefish","Flounder","Golden tilefish","Gray Triggerfish","Greater amberjack","King Mackerel","Spanish Mackerel","Mahi-Mahi","Pompano","Red porgy","Shallow water grouper","Shrimp (June only)","Snowy grouper","Vermilion snapper","Wahoo"]},{"key":"jul_aug","label":"July – August","short":"Jul–Aug","months":[7,8],"produce":["Basil","Beans","Blackberries","Blueberries","Cantaloupe","Che (Chinese Mulberry)","Chives","Corn","Cucumbers","Curry leaf","Datil peppers","Eggplant","Feijoa (Pineapple Guava)","Figs","Garlic chives","Jute/Molokhia/Egyptian spinach","Lemongrass","Luffa/Chinese okra","Marjoram","Mint","Moringa","Muscadine grapes","Nectarines","Okinawa spinach","Okra","Oregano","Pawpaw","Peaches","Peanuts","Pears","Peppers","Potatoes","Pumpkins","Rosemary","Shiso","Summer squash","Sweet potatoes","Thyme","Tomatoes","Watermelon","Zucchini"],"seafood":["Amberjack","Black Sea Bass","Bluefish","Cobia","Flounder","Grouper","Hogfish","King Mackerel","Mahi","Pompano","Red Drum","Sheepshead","Shrimp","Triggerfish","Vermilion Snapper"]},{"key":"sep_oct","label":"September – October","short":"Sep–Oct","months":[9,10],"produce":["Avocados","Basil","Beans","Bok choy","Callaloo","Chestnuts","Chives","Collards","Cucumbers","Daikon radishes","Datil peppers","Eggplant","Field peas","Garlic chives","Grapefruit","Japanese eggplant","Malabar spinach","Marjoram","Mint","Muscadine grapes","Mushrooms","Mustard greens","Napa cabbage","Nectarines","Okinawa spinach","Okra","Oregano","Painted corn","Papalo","Parsley","Pears","Pecans","Peppers","Persimmons","Pomegranates","Pumpkin (Seminole)","Radishes","Roselle hibiscus","Rosemary","Shiso","Squash","Sweet potatoes","Thyme","Tomatoes","Turnips","Watermelon"],"seafood":["Black sea bass","Gray triggerfish","Greater amberjack","Groupers","Mackerel","Red porgy","Sheepshead","Shrimp","Snook","Tilefish","Vermilion snapper","Wahoo"]},{"key":"nov_dec","label":"November – December","short":"Nov–Dec","months":[11,12],"produce":["Arugula","Beans","Beets","Bok choy","Braising mix","Broccoli","Brussels sprouts","Butternut squash","Cabbage","Carrots","Cauliflower","Chestnuts","Chinese spinach","Chives","Cilantro","Collards","Cucumbers","Datil peppers","Endive/escarole","Fennel","Grapefruit","Green onions","Kale","Kumquats","Lemons","Lettuce","Limes","Mizuna","Mushrooms","Mustard greens","Napa cabbage","Okra","Onions","Oranges","Pecans","Persimmons","Pommelos","Pumpkins","Purslane","Radicchio","Radishes","Rutabagas","Salad mix","Satsumas","Scallions","Sorrel","Spinach","Sunchokes","Sweet peppers","Sweet potatoes","Swiss chard","Tangelos","Tangerines","Turnips","Winter squash"],"seafood":["Alligator","Bass","Clams","Cobia","Drum","Grouper","Mullet","Oysters","Pompano","Sea Trout","Shrimp","Snapper","Spanish Mackerel","Spiny Lobster","Stone Crab Claws","Swordfish","Tilapia","Wahoo"]}];
+  var view = null; // null = follow today's date
+
+  function nowIdx(){
+    var m = new Date().getMonth() + 1;
+    for(var i=0;i<DATA.length;i++){ if(DATA[i].months.indexOf(m) !== -1) return i; }
+    return 0;
+  }
+  function activeIdx(){
+    if(view){ for(var i=0;i<DATA.length;i++){ if(DATA[i].key === view) return i; } }
+    return nowIdx();
+  }
+  function esc(x){
+    return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function chips(list, cls){
+    return '<div class="chips">' + list.map(function(x){
+      return '<span class="chip' + (cls ? ' ' + cls : '') + '">' + esc(x) + '</span>';
+    }).join('') + '</div>';
+  }
+
+  function render(){
+    var el = document.getElementById('season-body');
+    if(!el) return;
+    var i = activeIdx(), b = DATA[i], live = (i === nowIdx());
+
+    var h = '<div class="season-tabs" role="tablist">';
+    DATA.forEach(function(x){
+      h += '<button class="season-tab" type="button" role="tab" data-k="' + x.key +
+           '" aria-selected="' + (x.key === b.key) + '">' + esc(x.short) + '</button>';
+    });
+    h += '</div>';
+
+    h += '<div class="season-head"><h3>' + esc(b.label) + '</h3>';
+    h += live
+      ? '<span class="season-badge">In season now</span>'
+      : '<div style="color:var(--muted);font-size:14px">' + REGION + '</div>';
+    h += '</div>';
+
+    h += '<div class="season-group"><div class="glabel">Produce &middot; ' +
+         b.produce.length + '</div>' + chips(b.produce) + '</div>';
+    h += '<div class="season-group"><div class="glabel">From the water &middot; ' +
+         b.seafood.length + '</div>' + chips(b.seafood, 'sea') + '</div>';
+
+    el.innerHTML = h;
+    el.querySelectorAll('.season-tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ view = btn.getAttribute('data-k'); render(); });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', render);
+  } else { render(); }
+})();
 </script>
 </body>
 </html>
