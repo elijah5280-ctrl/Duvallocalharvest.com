@@ -197,6 +197,53 @@
   .proof-foot{text-align:center;color:var(--muted);font-size:14.5px;margin-top:26px;max-width:64ch;margin-left:auto;margin-right:auto}
   @media(max-width:760px){.proofs{grid-template-columns:1fr}}
 
+  /* ── EVENT ── */
+  .event-sec{background:var(--forest-deep);color:#EAF0E0;border-bottom:1px solid rgba(234,240,224,.12)}
+  .event-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .event-date{
+    display:inline-block;background:var(--gold);color:#fff;border-radius:5px;padding:4px 12px;
+    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;
+  }
+  .event-sec h2{
+    font-family:'Playfair Display',Georgia,serif;font-size:40px;line-height:1.1;
+    color:#fff;margin-bottom:16px;
+  }
+  .event-sec .lede{font-size:16.5px;line-height:1.7;color:rgba(234,240,224,.82);margin-bottom:20px}
+  .event-sec .fine{font-size:14px;line-height:1.7;color:rgba(234,240,224,.62)}
+  .event-menu{
+    background:rgba(250,246,238,.06);border:1px solid rgba(234,240,224,.16);
+    border-radius:16px;padding:30px 32px;
+  }
+  .event-menu .glabel{
+    font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold-soft);margin-bottom:18px;
+  }
+  .event-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .event-chips span{
+    background:rgba(250,246,238,.10);border:1px solid rgba(234,240,224,.18);
+    color:#EAF0E0;border-radius:999px;padding:6px 14px;font-size:13.5px;
+  }
+  .event-facts{
+    display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline;
+    padding:18px 0;margin-bottom:6px;
+    border-top:1px solid rgba(234,240,224,.16);border-bottom:1px solid rgba(234,240,224,.16);
+  }
+  .event-facts span{font-size:14.5px;color:rgba(234,240,224,.72);white-space:nowrap}
+  .event-facts b{
+    font-family:'Playfair Display',Georgia,serif;font-weight:600;
+    font-size:21px;color:#fff;margin-right:7px;
+  }
+  .event-cta{display:inline-flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  .btn-gold{background:var(--gold);color:#fff;border:1px solid var(--gold)}
+  .btn-gold:hover{background:var(--gold-soft);border-color:var(--gold-soft)}
+  .btn-outline-light{background:transparent;color:#EAF0E0;border:1px solid rgba(234,240,224,.35)}
+  .btn-outline-light:hover{border-color:var(--gold-soft);color:#fff}
+  @media(max-width:820px){
+    .event-grid{grid-template-columns:1fr;gap:32px}
+    .event-sec h2{font-size:31px}
+    .event-menu{padding:24px 22px}
+  }
+
   /* ── FARM NETWORK ── */
   .farms-sec{background:var(--white);border-top:1px solid var(--line)}
   .farm-tools{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-bottom:22px}
@@ -349,6 +396,53 @@
 </header>
 
 <!-- ═══════════════ THE LOOP ═══════════════ -->
+<!-- ═══════════════ EVENT ═══════════════ -->
+<!-- Remove or replace this whole section after 22 September 2026. -->
+<section class="event-sec">
+  <div class="wrap">
+    <div class="event-grid">
+      <div class="reveal">
+        <div class="event-date">Tuesday 22 September</div>
+        <h2>Equinox Tiki Harvest Dinner</h2>
+        <p class="lede">A cocktail-paired harvest dinner for one night only. The autumn equinox is the hinge of the Northeast Florida growing year — the last of the summer crops and the first of the fall — so we're cooking the turn itself.</p>
+        <p class="lede">Tiki gets treated as escapism. Done properly it's an agricultural cuisine: rum, cane, citrus, spice, fruit picked ripe. All of which we grow, distill or land within an hour of this table.</p>
+        <div class="event-facts">
+          <span><b>6:30pm</b>one seating</span>
+          <span><b>$120</b>per person</span>
+        </div>
+        <p class="fine">Price is before tax and gratuity. Seats are limited, and the menu is written close to the date — it moves with the harvest.</p>
+        <span class="event-cta">
+          <a class="btn btn-gold" href="mailto:restaurantinriverside@gmail.com?subject=Equinox%20Tiki%20Harvest%20Dinner%20%E2%80%94%20reservation">Reserve a seat</a>
+          <a class="btn btn-outline-light" href="https://www.instagram.com/duvallocalharvest" target="_blank" rel="noopener">Follow for the menu</a>
+        </span>
+      </div>
+      <div class="event-menu reveal">
+        <div class="glabel">What's ripe that week</div>
+        <p class="fine" style="margin-bottom:18px">The menu gets written close to the date, from whatever the fields and the coast are actually giving up. Here's what the Northeast Florida calendar says is in season on the equinox:</p>
+        <div class="event-chips">
+          <span>Muscadine grapes</span>
+          <span>Okra</span>
+          <span>Field peas</span>
+          <span>Sweet potatoes</span>
+          <span>Datil peppers</span>
+          <span>Eggplant</span>
+          <span>Tomatoes</span>
+          <span>Squash</span>
+          <span>Persimmons</span>
+          <span>Pecans</span>
+          <span>Callaloo</span>
+          <span>Malabar spinach</span>
+          <span>Shrimp</span>
+          <span>Sheepshead</span>
+          <span>Snook</span>
+        </div>
+        <div class="glabel" style="margin-top:26px;margin-bottom:10px">Poured with</div>
+        <p class="fine">Cocktails built on Northeast Florida distillers rather than imported bottles, with falernum made here. Every course is paired, and water is poured throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="loop-sec" id="how">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -556,7 +650,7 @@
     <div class="farm-grid reveal" id="farm-grid"></div>
     <div class="season-note reveal" style="margin-top:30px">
       <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
-      <p><b>Crop lists are what each farm publishes, not a live inventory.</b> Seasons, acreage and weather decide what any grower actually has in a given week &mdash; call before you plan a menu around it. </p>
+      <p><b>Crop lists are what each farm publishes, not a live inventory.</b> Seasons, acreage and weather decide what any grower actually has in a given week, and opening days shift with the harvest. We deliberately don't list hours here, because they go out of date faster than we can keep them. Call before you drive out, and call before you plan a menu around anything. </p>
       <p style="margin-top:12px"><b>And there is a hole in this map we want you to see.</b> Clay County alone has more than 400 farms — cattle, hay, timber, bees, hydroponics, aquaponics, vegetables, fruit and citrus, according to UF/IFAS Extension. Two are on this map. Baker's extension office says that county has no large crop sector but that small farms keep appearing; we found two. We didn't leave the rest out — we couldn't find them, because almost none are listed anywhere a chef would think to look. That gap is the reason Duval Local Harvest exists. <b>If you farm in Duval, Nassau, Baker, Clay or St. Johns and you're not on this map, tell us and you will be.</b></p>
     </div>
   </div>
@@ -596,25 +690,25 @@
           <svg viewBox="0 0 24 24"><path d="M12 21V11M12 13C12 9 9 7 5 7c0 4 3 6 7 6ZM12 11c0-3 2.5-5 6-5 0 3.5-2.5 5-6 5Z" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
         </div>
         <h3>Not in the code</h3>
-        <p>Before planting, Overalls Farm's Nathan Ballentine asked the city what he needed to do to operate legally. He was told they couldn't say he could — and couldn't say he couldn't — because gardens aren't defined in the code at all.</p>
+        <p>Jacksonville's zoning code does not define a community garden or a market garden, does not list either as a permitted use, and gives neither an ordinary path to approval. Growers aren't told no. They're told nothing.</p>
       </div>
       <div class="card">
         <div class="card-ic" style="background:var(--gold)">
           <svg viewBox="0 0 24 24"><path d="M4 9l8-4 8 4-8 4-8-4zM4 9v6l8 4 8-4V9" fill="none" stroke="#fff" stroke-width="1.7"/></svg>
         </div>
         <h3>$112 or $4,980</h3>
-        <p>A Certificate of Use application costs $112. The city instead pointed Overalls toward a Planned Unit Development — roughly $4,980 depending on acreage, plus a full City Council vote.</p>
+        <p>A Certificate of Use application is a $112 flat fee. For a garden on non-residential land, Planning has pointed applicants toward a Planned Unit Development instead — around $5,000 depending on acreage, plus a full City Council vote.</p>
       </div>
       <div class="card">
         <div class="card-ic" style="background:#5B4A32">
           <svg viewBox="0 0 24 24"><path d="M4 8h16l-1.5 11H5.5L4 8zm3 0V6a5 5 0 0110 0v2" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
         </div>
-        <h3>2023 &rarr; 2026</h3>
-        <p>Overalls Farm Three in Springfield applied in 2023 and didn't hold its Certificate of Use until 2026. Three citations along the way; the city eventually dropped all three.</p>
+        <h3>Decades of this</h3>
+        <p>Hundreds of market and community gardens have operated across Jacksonville for years without clear standing, feeding neighbors the whole time. The act doesn't invent anything. It legalizes what is already happening.</p>
       </div>
     </div>
 
-    <div class="banner reveal"><b>Duval Local Harvest supports the Free to Garden Act.</b> We buy from Jacksonville growers, including Eartha's Farm &amp; Market. Growing food with and for your neighbors shouldn't be this hard.</div>
+    <div class="banner reveal"><b>Duval Local Harvest supports the Free to Garden Act.</b> Growing food with and for your neighbors shouldn't be this hard.</div>
 
     <div class="legal reveal">
       <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
@@ -649,7 +743,7 @@
     </div>
   </div>
   <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
-  <div class="site-version">Duval Local Harvest · Apple 3.3</div>
+  <div class="site-version">Duval Local Harvest · Apple 4.1</div>
 </section>
 
 <script>
@@ -732,7 +826,7 @@
    The directory below the map works even if the tiles fail to load. */
 (function(){
   'use strict';
-  var FARMS = [{"n":"Eartha's Farm & Market","area":"Moncrief Springs","county":"Duval","partner":true,"lat":30.3693681,"lng":-81.6835921,"cat":"produce","note":"10.5-acre urban farm run by Clara White Mission. Saturday market, farm tours, youth agriculture and beekeeping programs.","grows":["Organic produce","Honey"]},{"n":"Congaree and Penn","area":"Northwest Jacksonville","county":"Duval","partner":false,"lat":30.4456124,"lng":-81.7760279,"cat":"produce","note":"330 acres. Began as a four-acre rice paddy in 2014; now orchards, a mill, a restaurant and u-pick fields.","grows":["Jupiter rice","Rice grits","Mayhaw","Muscadine grapes","Blackberries","Figs","Mulberries","Persimmons","Olives","Pecans","Honey"]},{"n":"5 Points Farm","area":"Riverside","county":"Duval","partner":false,"lat":30.3156463,"lng":-81.6828311,"cat":"greens","note":"Aeroponic tower farm on a residential street, run by David and JoAnn Bane. No soil. You-pick Friday and Saturday.","grows":["Salanova lettuce","Leaf lettuces","Spring mix","Microgreens","Arugula","Cilantro","Herbs","Chard"]},{"n":"Goodson's Gardens","area":"Northside","county":"Duval","partner":false,"lat":30.4615765,"lng":-81.6206141,"cat":"produce","note":"Three-acre family market garden. Everything sold is grown on site. Farm share available.","grows":["Salad greens","Microgreens","Lettuces","Salad turnips","Seasonal vegetables"]},{"n":"Down To Earth Farm","area":"Westside","county":"Duval","partner":false,"lat":30.3324725,"lng":-81.8120987,"cat":"produce","note":"Family farm since 2007. No pesticides or herbicides. CSA shares; sells at Riverside Arts Market. Season runs roughly November to June.","grows":["Seasonal vegetables","Cut flowers"]},{"n":"Berry Good Farms","area":"Arlington","county":"Duval","partner":false,"lat":30.3196412,"lng":-81.5598405,"cat":"produce","note":"A division of the North Florida School of Special Education, employing and training adults with intellectual differences.","grows":["Organic produce","Aquaponic tilapia","Cut flowers","Seedlings","Wheatgrass"]},{"n":"Eat Your Yard Jax","area":"Northwest Jacksonville","county":"Duval","partner":false,"lat":30.3937879,"lng":-81.7823614,"cat":"nursery","note":"Nonprofit farm and nursery founded by Tim Armstrong. Edible and useful plants, farm tours and classes. A Free to Garden Act coalition partner.","grows":["Fruit trees","Edible plants","Florida natives","Herbs"]},{"n":"Bee Friends Farm","area":"Murray Hill","county":"Duval","partner":false,"lat":30.3097987,"lng":-81.7155623,"cat":"honey","note":"Third-generation beekeeping since 2013 and a Florida-licensed honey packer. Hives move seasonally across North Florida to follow the nectar flow.","grows":["Wildflower honey","Orange blossom honey","Gallberry honey","Black mangrove honey","Beeswax"]},{"n":"Bacon's Farms","area":"Northside","county":"Duval","partner":false,"lat":30.486963,"lng":-81.587265,"cat":"produce","note":"Farm pickup Fridays; also sells at the Fernandina farmers market on Saturdays.","grows":["Lettuce","Cucumbers","Kale","Sunflowers","Pasture-raised eggs"]},{"n":"Williams Blueberry Farm","area":"Westside","county":"Duval","partner":false,"lat":30.2684634,"lng":-81.837108,"cat":"fruit","note":"Family u-pick on Stratton Road for sixteen years. Season runs late May into June. Also runs a wholesale line for tea and moringa.","grows":["Blueberries","Blueberry leaf tea","Preserves","Moringa","Black mangrove honey"]},{"n":"Kent's Blueberry Farm","area":"Northside","county":"Duval","partner":false,"lat":30.4880981,"lng":-81.7382811,"cat":"fruit","note":"Veteran-owned u-pick since 2005. Cash only. Season typically opens mid-May and runs about six weeks. Now also works the former Braddock rows.","grows":["Blueberries","Honey"]},{"n":"Traders Hill Farm","area":"Hilliard","county":"Nassau","partner":false,"lat":30.720713,"lng":-82.027385,"cat":"greens","note":"Indoor aquaponics at commercial scale. Already supplies restaurants, grocers and school districts across Northeast Florida and Southeast Georgia.","grows":["Green romaine","Butterhead","Red oak","Red romaine","Head lettuce","Tomatoes","Basil","Pak choi","Swiss chard","Kale","Collards","Microgreens","Tilapia"]},{"n":"The Blueberry Ranch","area":"Yulee","county":"Nassau","partner":false,"lat":30.6962636,"lng":-81.6579156,"cat":"fruit","note":"About six acres, no-till and regenerative, with no herbicides, fungicides or pesticides. U-pick in season.","grows":["Rabbiteye blueberries","Microgreens","Honey","Seasonal vegetables"]},{"n":"Karma Acres Farm","area":"Callahan","county":"Nassau","partner":false,"lat":30.5580114,"lng":-81.7967347,"cat":"honey","note":"Sustainable family farm selling raw honey, naturally grown produce and u-pick blueberries.","grows":["Raw honey","Blueberries","Seasonal produce"]},{"n":"GYO GREENS Farms","area":"Ponte Vedra Beach","county":"St. Johns","partner":false,"lat":30.1765999,"lng":-81.3981536,"cat":"greens","note":"Aquaponic greenhouse where koi feed the growing beds. Most of the crop already goes to restaurants in Jacksonville, Ponte Vedra and St. Augustine. Visits by arrangement.","grows":["Pea shoots","Sunflower shoots","Micro basil","Micro sage","Nasturtium","Edible flowers","Seasonal salad blend"]},{"n":"Amazing Grace Farms","area":"Green Cove Springs","county":"Clay","partner":false,"lat":29.9607487,"lng":-81.8969886,"cat":"produce","note":"Sunflower fields, pumpkin patch and corn maze on State Road 21. Seasonal — the fields open for autumn and close again.","grows":["Sunflowers","Pumpkins","Corn"]},{"n":"Three Generations Farm Stand","area":"Green Cove Springs","county":"Clay","partner":false,"lat":29.968807,"lng":-81.7986279,"cat":"stand","note":"Small family stand on Adams Lane, open weekends only — Saturday and Sunday. Eggs sold in bulk.","grows":["Eggs","Baked goods","Preserves"]},{"n":"Seven Acre Farm","area":"Macclenny","county":"Baker","partner":false,"lat":30.342757,"lng":-82.137541,"cat":"stand","note":"Farm stand on Harley Thrift Road, open most days on an honour-system pay setup. Get there early on Saturdays.","grows":["Vegetables","Farm eggs","Milk","Baked goods","Boiled peanuts"]},{"n":"Ben Wells Produce","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.9419721,"lng":-81.5419336,"cat":"produce","note":"Third-generation family farm on 350 acres, USDA Certified Organic since 2017. Already supplies St. Augustine restaurants, runs a weekly box delivery, and sells at the St. Augustine Amphitheatre market.","grows":["Beets","Carrots","Potatoes","Broccoli","Romanesco","Watermelon","Seasonal vegetables"]},{"n":"Wesley Wells Farms","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.9243294,"lng":-81.5428071,"cat":"produce","note":"U-pick vegetables and cut flowers alongside a working animal farm. Seasonal festivals and events; open Saturday mornings.","grows":["Sunflowers","Tomatoes","Strawberries","U-pick vegetables","Cut flowers"]},{"n":"Novaturient Farmstead","area":"St. Johns","county":"St. Johns","partner":false,"lat":30.0120541,"lng":-81.6146122,"cat":"stand","note":"Small suburban homestead run by Faith and Mike, working a residential lot under the oaks. Backyard poultry and hands-on workshops.","grows":["Eggs","Backyard poultry","Workshops"]},{"n":"Parker Flower Farms","area":"Elkton","county":"St. Johns","partner":false,"lat":29.792635,"lng":-81.4778539,"cat":"flowers","note":"Family u-pick flower farm on County Road 305. Cut your own bouquet among the sunflower rows. Open Wednesday and Thursday evenings and all day at weekends.","grows":["Sunflowers","Wildflowers","Cut flowers"]},{"n":"The Feed Mill","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.8519675,"lng":-81.5009608,"cat":"stand","note":"Family livestock feed store that doubles as a farm store and weekend kitchen — wood-fired pizza, animals to feed, and markets with local vendors and music.","grows":["Meat","Vegetables","Cheese","Bread","Honey","Milk and cream"]},{"n":"Wilson Family Farm","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.8448207,"lng":-81.5471852,"cat":"produce","note":"A working commercial farm on County Road 214 that ships by the truckload rather than selling retail. Opens its gates to the public for Slow Food's spring farm tour.","grows":["Field crops"]},{"n":"Parkers Potato Farm","area":"Elkton","county":"St. Johns","partner":false,"lat":29.7904888,"lng":-81.4928063,"cat":"produce","note":"Elkton potato ground, the crop this corner of St. Johns is built on. Wholesale scale — loading docks, not a farm stand. Listed on the county's spring farm tour as Parker Produce.","grows":["Potatoes"]},{"n":"Old Mill Farms","area":"Macclenny","county":"Baker","partner":false,"lat":30.3219901,"lng":-82.1237058,"cat":"produce","note":"Working family farm on SR-121 with cattle, goats and cane fields. Presses and boils its own cane syrup the old way, and opens for a sugar festival, corn maze and pumpkin patch each autumn.","grows":["Sugarcane","Cane syrup","Pumpkins","Corn"]}];
+  var FARMS = [{"n":"Eartha's Farm & Market","area":"Moncrief Springs","county":"Duval","partner":true,"lat":30.3693681,"lng":-81.6835921,"cat":"produce","note":"A 10.5-acre urban farm run by the Clara White Mission, with a weekend market, farm tours, and youth agriculture and beekeeping programs.","grows":["Organic produce","Honey"]},{"n":"Congaree and Penn","area":"Northwest Jacksonville","county":"Duval","partner":false,"lat":30.4456124,"lng":-81.7760279,"cat":"produce","note":"Began as a four-acre rice paddy in 2014 and grew into orchards, a mill, a restaurant and u-pick fields.","grows":["Jupiter rice","Rice grits","Mayhaw","Muscadine grapes","Blackberries","Figs","Mulberries","Persimmons","Olives","Pecans","Honey"]},{"n":"5 Points Farm","area":"Riverside","county":"Duval","partner":false,"lat":30.3156463,"lng":-81.6828311,"cat":"greens","note":"Aeroponic tower farm on a residential street in Riverside. No soil, no pesticides, and you pick your own.","grows":["Salanova lettuce","Leaf lettuces","Spring mix","Microgreens","Arugula","Cilantro","Herbs","Chard"]},{"n":"Goodson's Gardens","area":"Northside","county":"Duval","partner":false,"lat":30.4615765,"lng":-81.6206141,"cat":"produce","note":"A three-acre family market garden on the Northside. Everything sold is grown on site, with a farm share available.","grows":["Salad greens","Microgreens","Lettuces","Salad turnips","Seasonal vegetables"]},{"n":"Down To Earth Farm","area":"Westside","county":"Duval","partner":false,"lat":30.3324725,"lng":-81.8120987,"cat":"produce","note":"Family farm since 2007, growing without pesticides or herbicides. CSA shares, and a stall at Riverside Arts Market. The growing season runs roughly November to June.","grows":["Seasonal vegetables","Cut flowers"]},{"n":"Berry Good Farms","area":"Arlington","county":"Duval","partner":false,"lat":30.3196412,"lng":-81.5598405,"cat":"produce","note":"A division of the North Florida School of Special Education, employing and training adults with intellectual differences.","grows":["Organic produce","Aquaponic tilapia","Cut flowers","Seedlings","Wheatgrass"]},{"n":"Eat Your Yard Jax","area":"Northwest Jacksonville","county":"Duval","partner":false,"lat":30.3937879,"lng":-81.7823614,"cat":"nursery","note":"Nonprofit farm and nursery selling edible and useful plants, with farm tours and classes. A Free to Garden Act coalition partner.","grows":["Fruit trees","Edible plants","Florida natives","Herbs"]},{"n":"Bee Friends Farm","area":"Murray Hill","county":"Duval","partner":false,"lat":30.3097987,"lng":-81.7155623,"cat":"honey","note":"Third-generation beekeeping since 2013 and a Florida-licensed honey packer. Hives move seasonally across North Florida to follow the nectar flow.","grows":["Wildflower honey","Orange blossom honey","Gallberry honey","Black mangrove honey","Beeswax"]},{"n":"Bacon's Farms","area":"Northside","county":"Duval","partner":false,"lat":30.486963,"lng":-81.587265,"cat":"produce","note":"Northside grower selling by farm pickup and at the Fernandina farmers market.","grows":["Lettuce","Tomatoes","Cut flowers"]},{"n":"Williams Blueberry Farm","area":"Westside","county":"Duval","partner":false,"lat":30.2684634,"lng":-81.837108,"cat":"fruit","note":"Family u-pick on Stratton Road going on sixteen years. Blueberry season runs late May into June.","grows":["Blueberries","Honey"]},{"n":"Kent's Blueberry Farm","area":"Northside","county":"Duval","partner":false,"lat":30.4880981,"lng":-81.7382811,"cat":"fruit","note":"Veteran-owned u-pick since 2005, cash only. Season typically opens mid-May and runs about six weeks.","grows":["Blueberries","Honey"]},{"n":"Traders Hill Farm","area":"Hilliard","county":"Nassau","partner":false,"lat":30.720713,"lng":-82.027385,"cat":"greens","note":"Indoor aquaponics at commercial scale, growing without pesticides, herbicides or fungicides. Supplies restaurants, grocers and school districts across Northeast Florida and Southeast Georgia.","grows":["Green romaine","Butterhead","Red oak","Red romaine","Head lettuce","Tomatoes","Basil","Pak choi","Swiss chard","Kale","Collards","Microgreens","Tilapia"]},{"n":"The Blueberry Ranch","area":"Yulee","county":"Nassau","partner":false,"lat":30.6962636,"lng":-81.6579156,"cat":"fruit","note":"U-pick blueberry farm off I-95 at Yulee, growing several rabbiteye varieties.","grows":["Blueberries","Honey"]},{"n":"Karma Acres Farm","area":"Callahan","county":"Nassau","partner":false,"lat":30.5580114,"lng":-81.7967347,"cat":"honey","note":"Sustainable family farm in Callahan selling raw honey, naturally grown produce and u-pick blueberries.","grows":["Raw honey","Blueberries","Seasonal produce"]},{"n":"GYO GREENS Farms","area":"Ponte Vedra Beach","county":"St. Johns","partner":false,"lat":30.1765999,"lng":-81.3981536,"cat":"greens","note":"Aquaponic greenhouse in Ponte Vedra Beach where koi feed the growing beds. Sells to local restaurants and runs tours by arrangement.","grows":["Microgreens","Pea shoots","Sunflower shoots","Edible flowers"]},{"n":"Amazing Grace Farms","area":"Green Cove Springs","county":"Clay","partner":false,"lat":29.9607487,"lng":-81.8969886,"cat":"produce","note":"Sunflower fields, pumpkin patch and corn maze on State Road 21. Strictly seasonal — the fields open for autumn and close again.","grows":["Sunflowers","Pumpkins","Corn"]},{"n":"Three Generations Farm Stand","area":"Green Cove Springs","county":"Clay","partner":false,"lat":29.968807,"lng":-81.7986279,"cat":"stand","note":"Small family stand on Adams Lane in Green Cove Springs, selling eggs by the dozen or in bulk.","grows":["Eggs","Baked goods","Preserves"]},{"n":"Seven Acre Farm","area":"Macclenny","county":"Baker","partner":false,"lat":30.342757,"lng":-82.137541,"cat":"stand","note":"Farm stand on Harley Thrift Road in Macclenny, run on an honor-system pay setup.","grows":["Vegetables","Farm eggs","Milk","Baked goods","Boiled peanuts"]},{"n":"Ben Wells Produce","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.9419721,"lng":-81.5419336,"cat":"produce","note":"Third-generation family farm on 350 acres, USDA Certified Organic since 2017. Runs a weekly produce box and sells at the St. Augustine Amphitheatre market.","grows":["Beets","Carrots","Potatoes","Broccoli","Romanesco","Watermelon","Seasonal vegetables"]},{"n":"Wesley Wells Farms","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.9243294,"lng":-81.5428071,"cat":"produce","note":"U-pick vegetables and cut flowers alongside a working animal farm, with seasonal festivals through the year.","grows":["Sunflowers","Tomatoes","Strawberries","U-pick vegetables","Cut flowers"]},{"n":"Novaturient Farmstead","area":"St. Johns","county":"St. Johns","partner":false,"lat":30.0120541,"lng":-81.6146122,"cat":"stand","note":"A small suburban homestead working a residential lot under the oaks, with backyard poultry and hands-on workshops.","grows":["Eggs","Backyard poultry","Workshops"]},{"n":"Parker Flower Farms","area":"Elkton","county":"St. Johns","partner":false,"lat":29.792635,"lng":-81.4778539,"cat":"flowers","note":"Family u-pick flower farm on County Road 305. Cut your own bouquet among the sunflower rows.","grows":["Sunflowers","Wildflowers","Cut flowers"]},{"n":"The Feed Mill","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.8519675,"lng":-81.5009608,"cat":"stand","note":"Family livestock feed store on County Road 214 that doubles as a farm shop and weekend kitchen, with animals to feed and markets featuring local vendors. Stocks a mix of its own and other local producers' goods — ask what's from the farm.","grows":["Farm shop","Feed and hay"]},{"n":"Wilson Family Farm","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.8448207,"lng":-81.5471852,"cat":"produce","note":"A working commercial farm on County Road 214 that ships by the truckload rather than selling retail.","grows":["Field crops"]},{"n":"Parkers Potato Farm","area":"Elkton","county":"St. Johns","partner":false,"lat":29.7904888,"lng":-81.4928063,"cat":"produce","note":"Elkton potato ground, the crop this corner of St. Johns is built on. Wholesale scale — loading docks, not a farm stand.","grows":["Potatoes"]},{"n":"Old Mill Farms","area":"Macclenny","county":"Baker","partner":false,"lat":30.3219901,"lng":-82.1237058,"cat":"produce","note":"Working family farm on SR-121 with cattle, goats and cane fields. Presses and boils its own cane syrup the old way, and opens for a sugar festival and corn maze in autumn.","grows":["Sugarcane","Cane syrup","Pumpkins","Corn"]},{"n":"Dowless Blueberry Farm","area":"Westside","county":"Duval","partner":false,"lat":30.22348,"lng":-81.772977,"cat":"fruit","note":"Small family u-pick with three picking areas on Ricker Road. Buckets provided, cash or check, and honey sold alongside the berries.","grows":["Blueberries","Honey"]},{"n":"Geiger Pioneer Farm","area":"Northside","county":"Duval","partner":false,"lat":30.4409904,"lng":-81.7272257,"cat":"produce","note":"A Century Family Pioneer Farm on Dunn Avenue, worked by the same family for five generations. Sugarcane grinding, corn mazes and hayrides in autumn.","grows":["Sugarcane","Pumpkins","Corn"]}];
   FARMS.forEach(function(f, i){ f.id = 'f' + i; });   // stable key, escaping-proof
   var county = 'all';
   var here = null;              // {lat,lng} once the visitor opts in
