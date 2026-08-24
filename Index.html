@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Young+Serif&display=swap" rel="stylesheet">
 <style>
   :root{
     --forest:#2E4A34;
@@ -36,7 +36,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
-    font-family:'DM Sans',system-ui,sans-serif;
+    font-family:'Young Serif',Georgia,serif;
     color:var(--ink);
     background:var(--cream);
     line-height:1.6;
@@ -46,11 +46,12 @@
 
   /* ── shared type ── */
   .eyebrow{
-    font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
     color:var(--gold);margin-bottom:14px;
   }
-  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.12;color:var(--forest)}
-  .serif{font-family:'Playfair Display',Georgia,serif}
+  h1,h2,h3{font-family:'Special Elite','Courier New',monospace;line-height:1.12;color:var(--forest)}
+  .serif{font-family:'Special Elite','Courier New',monospace}
+  b,strong{font-weight:400;color:var(--forest-deep)}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
   section{padding:86px 0}
@@ -65,23 +66,23 @@
   }
   .hero-logo{width:300px;height:auto;margin:0 auto 26px}
   .hero-tag{
-    font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    font-size:12px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;
     color:var(--gold);margin-bottom:24px;
   }
   .hero h1{
     font-size:clamp(30px,5vw,52px);
     max-width:15ch;margin:0 auto 22px;color:var(--forest);
   }
-  .hero h1 em{font-style:italic;color:var(--navy)}
+  .hero h1 em{color:var(--navy)}
   .hero-sub{
     font-size:clamp(16px,2.2vw,20px);color:var(--muted);
-    max-width:44ch;margin:0 auto 34px;font-style:italic;
-    font-family:'Playfair Display',Georgia,serif;font-weight:500;
+    max-width:44ch;margin:0 auto 34px;
+    font-family:'Young Serif',Georgia,serif;
   }
   .hero-cta{display:inline-flex;flex-wrap:wrap;gap:12px;justify-content:center}
   .btn{
     display:inline-block;padding:13px 26px;border-radius:8px;
-    font-weight:600;font-size:15px;text-decoration:none;transition:transform .12s ease,background .2s ease;
+    font-weight:400;font-size:15px;text-decoration:none;transition:transform .12s ease,background .2s ease;
   }
   .btn:active{transform:translateY(1px)}
   .btn-primary{background:var(--forest);color:#fff}
@@ -111,7 +112,7 @@
   .o-gold{background:var(--gold)}
   .o-navy{background:var(--navy)}
   .o-brown{background:#5B4A32}
-  .stage-name{font-family:'Playfair Display',serif;font-weight:600;font-size:17px;color:var(--forest);margin-bottom:4px}
+  .stage-name{font-family:'Young Serif',Georgia,serif;font-size:17px;color:var(--forest);margin-bottom:4px}
   .stage-sub{font-size:12.5px;color:var(--muted);line-height:1.4}
   .arrow{
     align-self:center;margin-top:22px;flex:0 0 auto;color:var(--gold-soft);
@@ -160,7 +161,7 @@
   .lane-ic svg{width:26px;height:26px;fill:#fff;stroke:#fff}
   .lane h3{font-size:19px;margin-bottom:10px}
   .lane p{font-size:14.5px;color:var(--muted);margin-bottom:16px}
-  .lane-tag{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+  .lane-tag{font-size:11.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase}
   .tag-green{color:var(--forest)}
   .tag-gold{color:var(--gold)}
   .tag-brown{color:#5B4A32}
@@ -183,7 +184,7 @@
     border:2px dashed var(--gold-soft);background:var(--card);text-align:center;padding:20px;
   }
   .photo-empty svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.5;margin-bottom:12px}
-  .photo-empty .pl{font-family:'Playfair Display',serif;font-weight:600;font-size:16px;color:var(--forest);margin-bottom:4px}
+  .photo-empty .pl{font-family:'Young Serif',Georgia,serif;font-size:16px;color:var(--forest);margin-bottom:4px}
   .photo-empty small{font-size:12px;color:var(--muted)}
   .photo-cap{text-align:center;color:var(--muted);font-size:14px;margin-top:22px;font-style:italic}
   @media(max-width:760px){.photo-grid{grid-template-columns:1fr}}
@@ -193,7 +194,7 @@
   .proof-sec{background:var(--white);border-top:1px solid var(--line)}
   .proofs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
   .proof{background:var(--card);border-radius:16px;padding:32px 28px}
-  .proof .num{font-family:'Playfair Display',serif;font-weight:700;font-size:38px;color:var(--gold);line-height:1;margin-bottom:12px;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;letter-spacing:-.5px}
+  .proof .num{font-family:'Special Elite','Courier New',monospace;font-size:38px;color:var(--gold);line-height:1;margin-bottom:12px;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;letter-spacing:-.5px}
   .proof p{font-size:15px;color:var(--muted)}
   .proof p b{color:var(--forest-deep)}
   .proof-foot{text-align:center;color:var(--muted);font-size:14.5px;margin-top:26px;max-width:64ch;margin-left:auto;margin-right:auto}
@@ -204,10 +205,10 @@
   .event-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
   .event-date{
     display:inline-block;background:var(--gold);color:#fff;border-radius:5px;padding:4px 12px;
-    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;
+    font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px;
   }
   .event-sec h2{
-    font-family:'Playfair Display',Georgia,serif;font-size:40px;line-height:1.1;
+    font-family:'Special Elite','Courier New',monospace;font-size:40px;line-height:1.1;
     color:#fff;margin-bottom:16px;
   }
   .event-sec .lede{font-size:16.5px;line-height:1.7;color:rgba(234,240,224,.82);margin-bottom:20px}
@@ -219,7 +220,7 @@
     border-radius:16px;padding:26px 30px;margin-top:34px;
   }
   .event-menu .glabel{
-    font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
     color:var(--gold-soft);margin-bottom:18px;
   }
   .event-chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -234,7 +235,7 @@
   }
   .event-facts span{font-size:14.5px;color:rgba(234,240,224,.72);white-space:nowrap}
   .event-facts b{
-    font-family:'Playfair Display',Georgia,serif;font-weight:600;
+    font-family:'Young Serif',Georgia,serif;
     font-size:21px;color:#fff;margin-right:7px;
   }
   .event-cta{display:inline-flex;flex-wrap:wrap;gap:12px;margin-top:8px}
@@ -253,7 +254,7 @@
   .farm-tools{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-bottom:22px}
   .farm-chipbtn{
     background:var(--card);color:var(--forest);border:1px solid var(--line);border-radius:999px;
-    padding:8px 16px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+    padding:8px 16px;font:inherit;font-size:13.5px;font-weight:400;cursor:pointer;
     transition:background .18s ease,color .18s ease,border-color .18s ease;
   }
   .farm-chipbtn:hover{border-color:var(--gold-soft)}
@@ -264,7 +265,7 @@
     width:100%;height:460px;border-radius:16px;border:1px solid var(--line);
     background:var(--card);margin-bottom:14px;overflow:hidden;
   }
-  #farm-map.leaflet-container{background:#EAE6DC;font-family:'DM Sans',system-ui,sans-serif}
+  #farm-map.leaflet-container{background:#EAE6DC;font-family:'Young Serif',Georgia,serif}
   .leaflet-popup-content{font-size:13px;line-height:1.5;color:var(--ink)}
   .leaflet-popup-content b{color:var(--forest-deep)}
   .map-fallback{
@@ -293,7 +294,7 @@
   .farm-head{
     width:100%;background:none;border:0;padding:20px 22px 14px;font:inherit;cursor:pointer;
     display:flex;align-items:flex-start;gap:12px;text-align:left;color:var(--forest-deep);
-    font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:1.25;
+    font-family:'Young Serif',Georgia,serif;font-size:20px;line-height:1.25;
   }
   .farm-head:hover{color:var(--forest)}
   .farm-head span{flex:1}
@@ -308,7 +309,7 @@
   .farm-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:var(--muted);padding:0 22px 18px}
   .farm-tag{
     background:var(--sage);color:var(--forest-deep);border-radius:5px;padding:2px 9px;
-    font-size:11px;font-weight:600;letter-spacing:.04em;
+    font-size:11px;font-weight:400;letter-spacing:.04em;
   }
   .farm-tag.gold{background:var(--gold);color:#fff}
   .farm-tag.dist{background:var(--white);border:1px solid var(--line);color:var(--forest)}
@@ -322,20 +323,20 @@
   .season-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px}
   .season-tab{
     background:var(--card);color:var(--forest);border:1px solid var(--line);
-    border-radius:999px;padding:9px 18px;font:inherit;font-size:14px;font-weight:600;
+    border-radius:999px;padding:9px 18px;font:inherit;font-size:14px;font-weight:400;
     cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease;
   }
   .season-tab:hover{border-color:var(--gold-soft)}
   .season-tab[aria-selected="true"]{background:var(--forest);color:#fff;border-color:var(--forest)}
   .season-head{text-align:center;margin-bottom:24px}
-  .season-head h3{font-family:'Playfair Display',Georgia,serif;font-size:28px;color:var(--forest);margin-bottom:8px}
+  .season-head h3{font-family:'Special Elite','Courier New',monospace;font-size:28px;color:var(--forest);margin-bottom:8px}
   .season-badge{
     display:inline-block;background:var(--gold);color:#fff;border-radius:5px;
-    padding:3px 10px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:3px 10px;font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;
   }
   .season-group{margin-bottom:26px}
   .season-group .glabel{
-    font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
     color:var(--gold);margin-bottom:12px;
   }
   .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -353,21 +354,17 @@
   .season-note b{color:var(--forest-deep)}
   @media(max-width:640px){.season-tab{padding:8px 14px;font-size:13px}.season-head h3{font-size:23px}}
 
-  /* ── FREE TO GARDEN ACT ── */
-  .ftga-sec{background:var(--cream);border-top:1px solid var(--line)}
-  .ftga-cta{text-align:center;margin-top:30px}
-
   /* ── CLOSING ── */
   .close-sec{background:var(--forest-deep);color:#EAF0E0;text-align:center;padding:80px 24px}
   .close-sec h2{font-size:clamp(26px,4vw,40px);color:#fff;max-width:20ch;margin:0 auto 20px}
-  .close-sec .lead{color:#C6D4BC;font-size:17px;max-width:48ch;margin:0 auto 34px;font-style:italic;font-family:'Playfair Display',serif}
+  .close-sec .lead{color:#C6D4BC;font-size:17px;max-width:48ch;margin:0 auto 34px;font-family:'Young Serif',Georgia,serif}
   .close-cta{display:inline-flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:44px}
   .btn-light{background:var(--gold);color:#fff}
   .btn-light:hover{background:var(--gold-soft)}
   .btn-outline{background:transparent;color:#EAF0E0;border:1.5px solid rgba(234,240,224,.35)}
   .btn-outline:hover{border-color:#EAF0E0}
   .contact{border-top:1px solid rgba(234,240,224,.18);padding-top:30px;max-width:520px;margin:0 auto}
-  .contact .name{font-family:'Playfair Display',serif;font-weight:600;font-size:18px;color:#fff;margin-bottom:6px}
+  .contact .name{font-family:'Young Serif',Georgia,serif;font-size:18px;color:#fff;margin-bottom:6px}
   .contact .role{color:#B9C7AE;font-size:14px;margin-bottom:4px}
   .contact a{color:var(--gold-soft);text-decoration:none;font-size:14px}
 .socials{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:14px}
@@ -685,56 +682,6 @@
   </div>
 </section>
 
-<!-- ═══════════════ FREE TO GARDEN ACT ═══════════════ -->
-<section class="ftga-sec">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Where we stand</div>
-      <h2>Jacksonville's gardens are legal in spirit, not in code</h2>
-      <p>Jacksonville's Comprehensive Plan calls for encouraging community gardens as open-space resources that strengthen neighborhoods and improve access to healthy food. Its zoning code offers no business-as-usual path to legally operate one — not without rezoning, a state agricultural exemption, or political navigation.</p>
-    </div>
-
-    <div class="cards3 reveal">
-      <div class="card">
-        <div class="card-ic" style="background:var(--forest)">
-          <svg viewBox="0 0 24 24"><path d="M12 21V11M12 13C12 9 9 7 5 7c0 4 3 6 7 6ZM12 11c0-3 2.5-5 6-5 0 3.5-2.5 5-6 5Z" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
-        </div>
-        <h3>Not in the code</h3>
-        <p>Jacksonville's zoning code does not define a community garden or a market garden, does not list either as a permitted use, and gives neither an ordinary path to approval. Growers aren't told no. They're told nothing.</p>
-      </div>
-      <div class="card">
-        <div class="card-ic" style="background:var(--gold)">
-          <svg viewBox="0 0 24 24"><path d="M4 9l8-4 8 4-8 4-8-4zM4 9v6l8 4 8-4V9" fill="none" stroke="#fff" stroke-width="1.7"/></svg>
-        </div>
-        <h3>$112 or $4,980</h3>
-        <p>A Certificate of Use application is a $112 flat fee. For a garden on non-residential land, Planning has pointed applicants toward a Planned Unit Development instead — around $5,000 depending on acreage, plus a full City Council vote.</p>
-      </div>
-      <div class="card">
-        <div class="card-ic" style="background:#5B4A32">
-          <svg viewBox="0 0 24 24"><path d="M4 8h16l-1.5 11H5.5L4 8zm3 0V6a5 5 0 0110 0v2" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
-        </div>
-        <h3>Decades of this</h3>
-        <p>Hundreds of market and community gardens have operated across Jacksonville for years without clear standing, feeding neighbors the whole time. The act doesn't invent anything. It legalizes what is already happening.</p>
-      </div>
-    </div>
-
-    <div class="banner reveal"><b>Duval Local Harvest supports the Free to Garden Act.</b> Growing food with and for your neighbors shouldn't be this hard.</div>
-
-    <div class="legal reveal">
-      <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
-      <p><b>What the act does.</b> The Free to Garden Act is a proposed zoning ordinance that would make community gardens, market gardens, farmstands and on-site sales of what's grown on-site permissible by right in Jacksonville — with standards for hours, noise, odor, lighting and scale so gardens stay good neighbors. It also allows basic infrastructure and limited agritourism, and is written for local operators — eligible applicants must have beneficial owners or directors living in Duval County. The coalition credits the Duval Food Policy Council with convening the community conversations, the Duval Agricultural Council with engaging the wider agricultural community, UF/IFAS Extension Duval County and Blue Zones Project Jacksonville with research and policy insight during drafting, and SPAR and neighborhood leaders with the neighborhood-first perspective.</p>
-    </div>
-
-    <div class="ftga-cta reveal">
-      <span class="hero-cta">
-        <a class="btn btn-primary" href="https://www.justfood.network/freetogardenact" target="_blank" rel="noopener">Read the act</a>
-        <a class="btn btn-ghost" href="https://overalls.life/pages/petition" target="_blank" rel="noopener">Sign the petition</a>
-      </span>
-    </div>
-    <p class="proof-foot reveal">The coalition also organizes speakers for public comment at City Council and publishes a contact sheet for council members — both linked from the campaign page above.</p>
-  </div>
-</section>
-
 <!-- ═══════════════ CLOSING ═══════════════ -->
 <section class="close-sec">
   <h2>Local food, moving the way it should.</h2>
@@ -836,7 +783,7 @@
    The directory below the map works even if the tiles fail to load. */
 (function(){
   'use strict';
-  var FARMS = [{"n":"Eartha's Farm & Market","area":"Moncrief Springs","county":"Duval","partner":true,"lat":30.3693681,"lng":-81.6835921,"cat":"produce","note":"A 10.5-acre urban farm run by the Clara White Mission, with a weekend market, farm tours, and youth agriculture and beekeeping programs.","grows":["Organic produce","Honey"]},{"n":"Congaree and Penn","area":"Northwest Jacksonville","county":"Duval","partner":false,"lat":30.4456124,"lng":-81.7760279,"cat":"produce","note":"Began as a four-acre rice paddy in 2014 and grew into orchards, a mill, a restaurant and u-pick fields.","grows":["Jupiter rice","Rice grits","Mayhaw","Muscadine grapes","Blackberries","Figs","Mulberries","Persimmons","Olives","Pecans","Honey"]},{"n":"5 Points Farm","area":"Riverside","county":"Duval","partner":false,"lat":30.3156463,"lng":-81.6828311,"cat":"greens","note":"Aeroponic tower farm on a residential street in Riverside. No soil, no pesticides, and you pick your own.","grows":["Salanova lettuce","Leaf lettuces","Spring mix","Microgreens","Arugula","Cilantro","Herbs","Chard"]},{"n":"Goodson's Gardens","area":"Northside","county":"Duval","partner":false,"lat":30.4615765,"lng":-81.6206141,"cat":"produce","note":"A three-acre family market garden on the Northside. Everything sold is grown on site, with a farm share available.","grows":["Salad greens","Microgreens","Lettuces","Salad turnips","Seasonal vegetables"]},{"n":"Down To Earth Farm","area":"Westside","county":"Duval","partner":false,"lat":30.3324725,"lng":-81.8120987,"cat":"produce","note":"Family farm since 2007, growing without pesticides or herbicides. CSA shares, and a stall at Riverside Arts Market. The growing season runs roughly November to June.","grows":["Seasonal vegetables","Cut flowers"]},{"n":"Berry Good Farms","area":"Arlington","county":"Duval","partner":false,"lat":30.3196412,"lng":-81.5598405,"cat":"produce","note":"A division of the North Florida School of Special Education, employing and training adults with intellectual differences.","grows":["Organic produce","Aquaponic tilapia","Cut flowers","Seedlings","Wheatgrass"]},{"n":"Eat Your Yard Jax","area":"Northwest Jacksonville","county":"Duval","partner":false,"lat":30.3937879,"lng":-81.7823614,"cat":"nursery","note":"Nonprofit farm and nursery selling edible and useful plants, with farm tours and classes. A Free to Garden Act coalition partner.","grows":["Fruit trees","Edible plants","Florida natives","Herbs"]},{"n":"Bee Friends Farm","area":"Murray Hill","county":"Duval","partner":false,"lat":30.3097987,"lng":-81.7155623,"cat":"honey","note":"Third-generation beekeeping since 2013 and a Florida-licensed honey packer. Hives move seasonally across North Florida to follow the nectar flow.","grows":["Wildflower honey","Orange blossom honey","Gallberry honey","Black mangrove honey","Beeswax"]},{"n":"Bacon's Farms","area":"Northside","county":"Duval","partner":false,"lat":30.486963,"lng":-81.587265,"cat":"produce","note":"Northside grower selling by farm pickup and at the Fernandina farmers market.","grows":["Lettuce","Tomatoes","Cut flowers"]},{"n":"Williams Blueberry Farm","area":"Westside","county":"Duval","partner":false,"lat":30.2684634,"lng":-81.837108,"cat":"fruit","note":"Family u-pick on Stratton Road going on sixteen years. Blueberry season runs late May into June.","grows":["Blueberries","Honey"]},{"n":"Kent's Blueberry Farm","area":"Northside","county":"Duval","partner":false,"lat":30.4880981,"lng":-81.7382811,"cat":"fruit","note":"Veteran-owned u-pick since 2005, cash only. Season typically opens mid-May and runs about six weeks.","grows":["Blueberries","Honey"]},{"n":"Traders Hill Farm","area":"Hilliard","county":"Nassau","partner":false,"lat":30.720713,"lng":-82.027385,"cat":"greens","note":"Indoor aquaponics at commercial scale, growing without pesticides, herbicides or fungicides. Supplies restaurants, grocers and school districts across Northeast Florida and Southeast Georgia.","grows":["Green romaine","Butterhead","Red oak","Red romaine","Head lettuce","Tomatoes","Basil","Pak choi","Swiss chard","Kale","Collards","Microgreens","Tilapia"]},{"n":"The Blueberry Ranch","area":"Yulee","county":"Nassau","partner":false,"lat":30.6962636,"lng":-81.6579156,"cat":"fruit","note":"U-pick blueberry farm off I-95 at Yulee, growing several rabbiteye varieties.","grows":["Blueberries","Honey"]},{"n":"Karma Acres Farm","area":"Callahan","county":"Nassau","partner":false,"lat":30.5580114,"lng":-81.7967347,"cat":"honey","note":"Sustainable family farm in Callahan selling raw honey, naturally grown produce and u-pick blueberries.","grows":["Raw honey","Blueberries","Seasonal produce"]},{"n":"GYO GREENS Farms","area":"Ponte Vedra Beach","county":"St. Johns","partner":false,"lat":30.1765999,"lng":-81.3981536,"cat":"greens","note":"Aquaponic greenhouse in Ponte Vedra Beach where koi feed the growing beds. Sells to local restaurants and runs tours by arrangement.","grows":["Microgreens","Pea shoots","Sunflower shoots","Edible flowers"]},{"n":"Amazing Grace Farms","area":"Green Cove Springs","county":"Clay","partner":false,"lat":29.9607487,"lng":-81.8969886,"cat":"produce","note":"Sunflower fields, pumpkin patch and corn maze on State Road 21. Strictly seasonal — the fields open for autumn and close again.","grows":["Sunflowers","Pumpkins","Corn"]},{"n":"Three Generations Farm Stand","area":"Green Cove Springs","county":"Clay","partner":false,"lat":29.968807,"lng":-81.7986279,"cat":"stand","note":"Small family stand on Adams Lane in Green Cove Springs, selling eggs by the dozen or in bulk.","grows":["Eggs","Baked goods","Preserves"]},{"n":"Seven Acre Farm","area":"Macclenny","county":"Baker","partner":false,"lat":30.342757,"lng":-82.137541,"cat":"stand","note":"Farm stand on Harley Thrift Road in Macclenny, run on an honor-system pay setup.","grows":["Vegetables","Farm eggs","Milk","Baked goods","Boiled peanuts"]},{"n":"Ben Wells Produce","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.9419721,"lng":-81.5419336,"cat":"produce","note":"Third-generation family farm on 350 acres, USDA Certified Organic since 2017. Runs a weekly produce box and sells at the St. Augustine Amphitheatre market.","grows":["Beets","Carrots","Potatoes","Broccoli","Romanesco","Watermelon","Seasonal vegetables"]},{"n":"Wesley Wells Farms","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.9243294,"lng":-81.5428071,"cat":"produce","note":"U-pick vegetables and cut flowers alongside a working animal farm, with seasonal festivals through the year.","grows":["Sunflowers","Tomatoes","Strawberries","U-pick vegetables","Cut flowers"]},{"n":"Novaturient Farmstead","area":"St. Johns","county":"St. Johns","partner":false,"lat":30.0120541,"lng":-81.6146122,"cat":"stand","note":"A small suburban homestead working a residential lot under the oaks, with backyard poultry and hands-on workshops.","grows":["Eggs","Backyard poultry","Workshops"]},{"n":"Parker Flower Farms","area":"Elkton","county":"St. Johns","partner":false,"lat":29.792635,"lng":-81.4778539,"cat":"flowers","note":"Family u-pick flower farm on County Road 305. Cut your own bouquet among the sunflower rows.","grows":["Sunflowers","Wildflowers","Cut flowers"]},{"n":"The Feed Mill","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.8519675,"lng":-81.5009608,"cat":"stand","note":"Family livestock feed store on County Road 214 that doubles as a farm shop and weekend kitchen, with animals to feed and markets featuring local vendors. Stocks a mix of its own and other local producers' goods — ask what's from the farm.","grows":["Farm shop","Feed and hay"]},{"n":"Wilson Family Farm","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.8448207,"lng":-81.5471852,"cat":"produce","note":"A working commercial farm on County Road 214 that ships by the truckload rather than selling retail.","grows":["Field crops"]},{"n":"Parkers Potato Farm","area":"Elkton","county":"St. Johns","partner":false,"lat":29.7904888,"lng":-81.4928063,"cat":"produce","note":"Elkton potato ground, the crop this corner of St. Johns is built on. Wholesale scale — loading docks, not a farm stand.","grows":["Potatoes"]},{"n":"Old Mill Farms","area":"Macclenny","county":"Baker","partner":false,"lat":30.3219901,"lng":-82.1237058,"cat":"produce","note":"Working family farm on SR-121 with cattle, goats and cane fields. Presses and boils its own cane syrup the old way, and opens for a sugar festival and corn maze in autumn.","grows":["Sugarcane","Cane syrup","Pumpkins","Corn"]},{"n":"Dowless Blueberry Farm","area":"Westside","county":"Duval","partner":false,"lat":30.22348,"lng":-81.772977,"cat":"fruit","note":"Small family u-pick with three picking areas on Ricker Road. Buckets provided, cash or check, and honey sold alongside the berries.","grows":["Blueberries","Honey"]},{"n":"Geiger Pioneer Farm","area":"Northside","county":"Duval","partner":false,"lat":30.4409904,"lng":-81.7272257,"cat":"produce","note":"A Century Family Pioneer Farm on Dunn Avenue, worked by the same family for five generations. Sugarcane grinding, corn mazes and hayrides in autumn.","grows":["Sugarcane","Pumpkins","Corn"]}];
+  var FARMS = [{"n":"Eartha's Farm & Market","area":"Moncrief Springs","county":"Duval","partner":true,"lat":30.3693681,"lng":-81.6835921,"cat":"produce","note":"A 10.5-acre urban farm run by the Clara White Mission, with a weekend market, farm tours, and youth agriculture and beekeeping programs.","grows":["Organic produce","Honey"]},{"n":"Congaree and Penn","area":"Northwest Jacksonville","county":"Duval","partner":false,"lat":30.4456124,"lng":-81.7760279,"cat":"produce","note":"Began as a four-acre rice paddy in 2014 and grew into orchards, a mill, a restaurant and u-pick fields.","grows":["Jupiter rice","Rice grits","Mayhaw","Muscadine grapes","Blackberries","Figs","Mulberries","Persimmons","Olives","Pecans","Honey"]},{"n":"5 Points Farm","area":"Riverside","county":"Duval","partner":false,"lat":30.3156463,"lng":-81.6828311,"cat":"greens","note":"Aeroponic tower farm on a residential street in Riverside. No soil, no pesticides, and you pick your own.","grows":["Salanova lettuce","Leaf lettuces","Spring mix","Microgreens","Arugula","Cilantro","Herbs","Chard"]},{"n":"Goodson's Gardens","area":"Northside","county":"Duval","partner":false,"lat":30.4615765,"lng":-81.6206141,"cat":"produce","note":"A three-acre family market garden on the Northside. Everything sold is grown on site, with a farm share available.","grows":["Salad greens","Microgreens","Lettuces","Salad turnips","Seasonal vegetables"]},{"n":"Down To Earth Farm","area":"Westside","county":"Duval","partner":false,"lat":30.3324725,"lng":-81.8120987,"cat":"produce","note":"Family farm since 2007, growing without pesticides or herbicides. CSA shares, and a stall at Riverside Arts Market. The growing season runs roughly November to June.","grows":["Seasonal vegetables","Cut flowers"]},{"n":"Berry Good Farms","area":"Arlington","county":"Duval","partner":false,"lat":30.3196412,"lng":-81.5598405,"cat":"produce","note":"A division of the North Florida School of Special Education, employing and training adults with intellectual differences.","grows":["Organic produce","Aquaponic tilapia","Cut flowers","Seedlings","Wheatgrass"]},{"n":"Eat Your Yard Jax","area":"Northwest Jacksonville","county":"Duval","partner":false,"lat":30.3937879,"lng":-81.7823614,"cat":"nursery","note":"Nonprofit farm and nursery selling edible and useful plants, with farm tours and classes. A Free to Garden Act coalition partner.","grows":["Fruit trees","Edible plants","Florida natives","Herbs"]},{"n":"Bee Friends Farm","area":"Murray Hill","county":"Duval","partner":false,"lat":30.3097987,"lng":-81.7155623,"cat":"honey","note":"Third-generation beekeeping since 2013 and a Florida-licensed honey packer. Hives move seasonally across North Florida to follow the nectar flow.","grows":["Wildflower honey","Orange blossom honey","Gallberry honey","Black mangrove honey","Beeswax"]},{"n":"Bacon's Farms","area":"Northside","county":"Duval","partner":false,"lat":30.486963,"lng":-81.587265,"cat":"produce","note":"Northside grower selling by farm pickup and at the Fernandina farmers market.","grows":["Lettuce","Tomatoes","Cut flowers"]},{"n":"Williams Blueberry Farm","area":"Westside","county":"Duval","partner":false,"lat":30.2684634,"lng":-81.837108,"cat":"fruit","note":"Family u-pick on Stratton Road going on sixteen years. Blueberry season runs late May into June.","grows":["Blueberries","Honey"]},{"n":"Kent's Blueberry Farm","area":"Northside","county":"Duval","partner":false,"lat":30.4880981,"lng":-81.7382811,"cat":"fruit","note":"Veteran-owned u-pick since 2005, cash only. Season typically opens mid-May and runs about six weeks.","grows":["Blueberries","Honey"]},{"n":"Traders Hill Farm","area":"Hilliard","county":"Nassau","partner":false,"lat":30.720713,"lng":-82.027385,"cat":"greens","note":"Indoor aquaponics at commercial scale, growing without pesticides, herbicides or fungicides. Supplies restaurants, grocers and school districts across Northeast Florida and Southeast Georgia.","grows":["Green romaine","Butterhead","Red oak","Red romaine","Head lettuce","Tomatoes","Basil","Pak choi","Swiss chard","Kale","Collards","Microgreens","Tilapia"]},{"n":"The Blueberry Ranch","area":"Yulee","county":"Nassau","partner":false,"lat":30.6962636,"lng":-81.6579156,"cat":"fruit","note":"U-pick blueberry farm off I-95 at Yulee, growing several rabbiteye varieties.","grows":["Blueberries","Honey"]},{"n":"Karma Acres Farm","area":"Callahan","county":"Nassau","partner":false,"lat":30.5580114,"lng":-81.7967347,"cat":"honey","note":"Sustainable family farm in Callahan selling raw honey, naturally grown produce and u-pick blueberries.","grows":["Raw honey","Blueberries","Seasonal produce"]},{"n":"GYO GREENS Farms","area":"Ponte Vedra Beach","county":"St. Johns","partner":false,"lat":30.1765999,"lng":-81.3981536,"cat":"greens","note":"Aquaponic greenhouse in Ponte Vedra Beach where koi feed the growing beds. Sells to local restaurants and runs tours by arrangement.","grows":["Microgreens","Pea shoots","Sunflower shoots","Edible flowers"]},{"n":"Amazing Grace Farms","area":"Green Cove Springs","county":"Clay","partner":false,"lat":29.9607487,"lng":-81.8969886,"cat":"produce","note":"Sunflower fields, pumpkin patch and corn maze on State Road 21. Strictly seasonal — the fields open for autumn and close again.","grows":["Sunflowers","Pumpkins","Corn"]},{"n":"Three Generations Farm Stand","area":"Green Cove Springs","county":"Clay","partner":false,"lat":29.968807,"lng":-81.7986279,"cat":"stand","note":"Small family stand on Adams Lane in Green Cove Springs, selling eggs by the dozen or in bulk.","grows":["Eggs","Baked goods","Preserves"]},{"n":"Seven Acre Farm","area":"Macclenny","county":"Baker","partner":false,"lat":30.342757,"lng":-82.137541,"cat":"stand","note":"Farm stand on Harley Thrift Road in Macclenny, run on an honor-system pay setup.","grows":["Vegetables","Farm eggs","Milk","Baked goods","Boiled peanuts"]},{"n":"Ben Wells Produce","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.9419721,"lng":-81.5419336,"cat":"produce","note":"Third-generation family farm on 350 acres, USDA Certified Organic since 2017. Runs a weekly produce box and sells at the St. Augustine Amphitheatre market.","grows":["Beets","Carrots","Potatoes","Broccoli","Romanesco","Watermelon","Seasonal vegetables"]},{"n":"Wesley Wells Farms","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.9243294,"lng":-81.5428071,"cat":"produce","note":"U-pick vegetables and cut flowers alongside a working animal farm, with seasonal festivals through the year.","grows":["Sunflowers","Tomatoes","Strawberries","U-pick vegetables","Cut flowers"]},{"n":"Novaturient Farmstead","area":"St. Johns","county":"St. Johns","partner":false,"lat":30.0120541,"lng":-81.6146122,"cat":"stand","note":"A small suburban homestead working a residential lot under the oaks, with backyard poultry and hands-on workshops.","grows":["Eggs","Backyard poultry","Workshops"]},{"n":"Parker Flower Farms","area":"Elkton","county":"St. Johns","partner":false,"lat":29.792635,"lng":-81.4778539,"cat":"flowers","note":"Family u-pick flower farm on County Road 305. Cut your own bouquet among the sunflower rows.","grows":["Sunflowers","Wildflowers","Cut flowers"]},{"n":"The Feed Mill","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.8519675,"lng":-81.5009608,"cat":"stand","note":"Family livestock feed store on County Road 214 that doubles as a farm shop and weekend kitchen, with animals to feed and markets featuring local vendors. Stocks a mix of its own and other local producers' goods — ask what's from the farm.","grows":["Farm shop","Feed and hay"]},{"n":"Wilson Family Farm","area":"St. Augustine","county":"St. Johns","partner":false,"lat":29.8448207,"lng":-81.5471852,"cat":"produce","note":"A working commercial farm on County Road 214 that ships by the truckload rather than selling retail.","grows":["Field crops"]},{"n":"Parkers Potato Farm","area":"Elkton","county":"St. Johns","partner":false,"lat":29.7904888,"lng":-81.4928063,"cat":"produce","note":"Elkton potato ground, the crop this corner of St. Johns is built on. Wholesale scale — loading docks, not a farm stand.","grows":["Potatoes"]},{"n":"Old Mill Farms","area":"Macclenny","county":"Baker","partner":false,"lat":30.3219901,"lng":-82.1237058,"cat":"produce","note":"Working family farm on SR-121 with cattle, goats and cane fields. Presses and boils its own cane syrup the old way, and opens for a sugar festival and corn maze in autumn.","grows":["Sugarcane","Cane syrup","Pumpkins","Corn"]},{"n":"Dowless Blueberry Farm","area":"Westside","county":"Duval","partner":false,"lat":30.22348,"lng":-81.772977,"cat":"fruit","note":"Small family u-pick with three picking areas on Ricker Road. Buckets provided, cash or check, and honey sold alongside the berries.","grows":["Blueberries","Honey"]},{"n":"Geiger Pioneer Farm","area":"Northside","county":"Duval","partner":false,"lat":30.4409904,"lng":-81.7272257,"cat":"produce","note":"A Century Family Pioneer Farm on Dunn Avenue, worked by the same family for five generations. Sugarcane grinding, corn mazes and hayrides in autumn.","grows":["Sugarcane","Pumpkins","Corn"]},{"n":"Frog Song Organics","area":"Hawthorne","county":"Alachua","partner":false,"lat":29.692371,"lng":-82.127982,"cat":"produce","note":"Certified organic vegetables on 63 acres in eastern Alachua County since 2011, alongside pasture-raised heritage hogs. Farm visits are by appointment only. Weekly pickup in Jacksonville at BREW Five Points on Thursdays.","grows":["Certified organic vegetables","Leafy greens","Root vegetables","Sweet corn","Herbs","Roselle","Sugarcane and cane syrup","Pasture-raised pork"]}];
   FARMS.forEach(function(f, i){ f.id = 'f' + i; });   // stable key, escaping-proof
   var county = 'all';
   var here = null;              // {lat,lng} once the visitor opts in
