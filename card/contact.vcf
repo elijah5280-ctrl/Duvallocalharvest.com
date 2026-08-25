@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Acquafredda;Elijah;;;
+FN:Elijah Acquafredda
+ORG:Duval Local Harvest
+TITLE:Founder
+EMAIL;TYPE=INTERNET,WORK:elijah@duvallocalharvest.com
+EMAIL;TYPE=INTERNET,WORK:restaurantinriverside@gmail.com
+TEL;TYPE=CELL,VOICE:+13526424233
+TEL;TYPE=WORK,VOICE:+19043533202
+TEL;TYPE=WORK,VOICE:+19043564517
+ADR;TYPE=WORK:;;1251 King Street;Jacksonville;FL;32204;USA
+URL:https://duvallocalharvest.com
+URL:https://rsljax.com
+X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/duvallocalharvest
+NOTE:Managing Partner at The Restaurant In Riverside inside Riverside Liqu
+ ors
+END:VCARD
