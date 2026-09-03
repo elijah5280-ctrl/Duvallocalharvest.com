@@ -42,31 +42,32 @@ ${bodyHtml}
 }
 
 function farmEmail(name) {
-  const hi = name ? `Hi ${ESC(name)},` : 'Hi,';
+  const hi = name ? `Dear ${ESC(name)},` : 'Hello,';
   return {
-    subject: 'You\u2019re on the Duval Local Harvest farm list',
+    subject: 'Welcome to Duval Local Harvest',
     html: shell(`
 <p style="margin:0 0 14px;">${hi}</p>
-<p style="margin:0 0 14px;">Thanks for signing up. Here\u2019s what Duval Local Harvest actually is, and what happens next.</p>
-<p style="margin:0 0 14px;"><b>What it is.</b> A direct line between farms here in Duval County and the kitchens that want to buy from them. You post what you actually harvested that week &mdash; real items, real quantities. Enrolled restaurants see that list and claim what they want. No broker in the middle, no bidding, no one telling you what to grow.</p>
-<p style="margin:0 0 14px;"><b>What being enrolled means.</b> You set your own prices. You post only what you actually have, when you have it. You are never obligated to post, and you can stop any time. It is free to join, and it stays free for farms.</p>
-<p style="margin:0 0 14px;"><b>What happens next.</b> I\u2019ll reach out personally, usually within a day or two, to get you set up and walk you through posting your first harvest. If it\u2019s easier to talk it through on the phone, just reply and tell me a good time.</p>
-<p style="margin:0 0 14px;">If anything I\u2019ve said doesn\u2019t match what you need, tell me. I\u2019d rather hear it now.</p>
-<p style="margin:0;">Thanks for giving this a look.</p>`)
+<p style="margin:0 0 14px;">Thank you for signing up for Duval Local Harvest.</p>
+<p style="margin:0 0 14px;">Here is how the network works. Enrolled farms post what they have actually harvested each week, and enrolled restaurants review that list and claim what they need, directly from the farm.</p>
+<p style="margin:0 0 14px;">I want to be transparent about where things stand. The network is still in its early stages. A small number of farms and kitchens are currently enrolled, and there is not yet enough volume on either side to support weekly ordering. That will change as enrollment grows. By signing up now, you are among the first, and I will notify you as soon as restaurants are ready to purchase what you post.</p>
+<p style="margin:0 0 14px;">I will be in touch within the next day or two to learn more about what you grow and to complete your setup. There is no cost to participate and no obligation to post.</p>
+<p style="margin:0 0 14px;">If any part of this does not align with how your operation works, please let me know.</p>
+<p style="margin:0;">Sincerely,</p>`)
   };
 }
 
 function restaurantEmail(name) {
-  const hi = name ? `Hi ${ESC(name)},` : 'Hi,';
+  const hi = name ? `Dear ${ESC(name)},` : 'Hello,';
   return {
-    subject: 'You\u2019re on the Duval Local Harvest kitchen list',
+    subject: 'Welcome to Duval Local Harvest',
     html: shell(`
 <p style="margin:0 0 14px;">${hi}</p>
-<p style="margin:0 0 14px;">Thanks for signing up. Here\u2019s what Duval Local Harvest actually is, and what happens next.</p>
-<p style="margin:0 0 14px;"><b>What it is.</b> A direct line between kitchens here in Duval County and the farms growing food a few miles away. Enrolled farms post what they actually harvested that week. You see that board and claim what you want, direct from the grower. You know whose field it came from, because it says so.</p>
-<p style="margin:0 0 14px;"><b>What being enrolled means.</b> No contract, no minimum, no commitment to buy. You claim what\u2019s useful to you and ignore the rest. It is free to join. I\u2019ll be straight with you about scale: this is a small network right now, a handful of farms and growing. It supplements your existing sourcing rather than replacing it.</p>
-<p style="margin:0 0 14px;"><b>What happens next.</b> I\u2019ll reach out personally, usually within a day or two, to walk you through the weekly board and how claiming works. If a quick call is easier, reply and tell me a good time for your prep schedule.</p>
-<p style="margin:0;">I run a kitchen too, so if something about this doesn\u2019t fit how you actually buy, say so.</p>`)
+<p style="margin:0 0 14px;">Thank you for signing up for Duval Local Harvest.</p>
+<p style="margin:0 0 14px;">Here is how the network works. Enrolled farms post what they have actually harvested each week. You review that list and claim what you need, directly from the grower.</p>
+<p style="margin:0 0 14px;">I want to be transparent about where things stand. The network is still in its early stages. I am actively enrolling farms, and there is not yet enough supply to support a full weekly order. That will change as enrollment grows. By signing up now, you are among the first, and I will notify you as soon as there is enough available to be worth your time. Until then, this is intended to supplement your existing sourcing, not replace it.</p>
+<p style="margin:0 0 14px;">I will be in touch within the next day or two to learn what you would want from local farms and to complete your setup. There is no cost to sign up, no minimums, and no commitment.</p>
+<p style="margin:0 0 14px;">If any part of this does not align with how your kitchen operates, please let me know.</p>
+<p style="margin:0;">Sincerely,</p>`)
   };
 }
 
