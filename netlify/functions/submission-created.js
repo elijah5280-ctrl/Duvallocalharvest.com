@@ -29,7 +29,7 @@
 //   3. Deploy. Netlify auto-detects the netlify/functions folder.
 //   4. Test the form. Check the function log under Logs > Functions.
 
-const { getStore } = require('@netlify/blobs');
+const { getStore, connectLambda } = require('@netlify/blobs');
 
 const ESC = (s) =>
   String(s == null ? '' : s)
@@ -118,8 +118,11 @@ exports.handler = async (event) => {
     }
 
     // ---- guard storage: fail CLOSED if unavailable ----
+    // Lambda-compatibility functions must initialise the Blobs environment
+    // from the event before getStore() will work.
     let store;
     try {
+      connectLambda(event);
       store = getStore({ name: 'welcome-log', consistency: 'strong' });
     } catch (e) {
       console.error('Guard storage unavailable; NOT sending. Submission is still saved in Netlify Forms.', e);
