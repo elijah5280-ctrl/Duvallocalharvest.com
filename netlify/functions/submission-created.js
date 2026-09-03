@@ -6,8 +6,12 @@
 // SETUP (all in the Netlify dashboard, no terminal):
 //   1. Site configuration > Environment variables > Add:
 //        RESEND_API_KEY   = your Resend key
-//        DLH_FROM         = Elijah <elijah@duvallocalharvest.com>
-//      The DLH_FROM domain must be VERIFIED in Resend or sends will fail.
+//        DLH_FROM         = the From line for welcome emails,
+//                           formatted as:  Name <address@yourdomain>
+//      That domain must be VERIFIED in Resend or sends will fail.
+//
+//      Do NOT paste either value into this file. Netlify scans the repo
+//      for env var values and will fail the build if it finds them.
 //   2. Deploy. Netlify auto-detects the netlify/functions folder.
 //   3. Test the form. Check the function log under Logs > Functions.
 
@@ -83,6 +87,10 @@ exports.handler = async (event) => {
       console.error('RESEND_API_KEY is not set');
       return { statusCode: 200, body: 'missing key' };
     }
+    if (!process.env.DLH_FROM) {
+      console.error('DLH_FROM is not set - add it in Netlify environment variables');
+      return { statusCode: 200, body: 'missing from' };
+    }
 
     const isFarm = formName === 'farm-enrollment';
     const msg = isFarm ? farmEmail(name) : restaurantEmail(name);
@@ -94,7 +102,7 @@ exports.handler = async (event) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: process.env.DLH_FROM || 'Elijah <elijah@duvallocalharvest.com>',
+        from: process.env.DLH_FROM,
         to: [to],
         reply_to: 'elijah@duvallocalharvest.com',
         subject: msg.subject,
