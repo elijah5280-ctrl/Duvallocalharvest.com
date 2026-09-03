@@ -3,33 +3,18 @@
 // Netlify calls this automatically after a VERIFIED form submission.
 // No changes to your HTML are needed. Nothing here is visible to the browser.
 //
-// SAFETY NET (all enforced server-side, cannot be bypassed from the page):
-//   - One welcome email per address, ever. A repeat submission from the same
-//     address is logged and ignored, so the form cannot be used to flood
-//     someone's inbox.
-//   - Hard daily cap on welcome emails (default 25). Beyond it, submissions
-//     are still saved in Netlify Forms; only the email is skipped.
-//   - Email address is validated before anything is sent.
-//   - Fails CLOSED: if the guard storage is unavailable, no email is sent.
-//   - Every submission is still stored by Netlify and still notifies you.
-//
 // SETUP (all in the Netlify dashboard, no terminal):
 //   1. Site configuration > Environment variables > Add:
 //        RESEND_API_KEY   = your Resend key
 //        DLH_FROM         = the From line for welcome emails,
 //                           formatted as:  Name <address@yourdomain>
-//        WELCOME_DAILY_CAP = 25   (optional; omit to use the default)
 //      That domain must be VERIFIED in Resend or sends will fail.
 //
 //      Do NOT paste any of these values into this file. Netlify scans the
 //      repo for env var values and will fail the build if it finds them.
 //
-//   2. A package.json must exist at the repo root listing @netlify/blobs
-//      (provided alongside this file). Netlify installs it during the build.
-//   3. Deploy. Netlify auto-detects the netlify/functions folder.
-//   4. Test the form. Check the function log under Logs > Functions.
-
-const { getStore, connectLambda } = require('@netlify/blobs');
+//   2. Deploy. Netlify auto-detects the netlify/functions folder.
+//   3. Test the form. Check the function log under Logs > Functions.
 
 const ESC = (s) =>
   String(s == null ? '' : s)
@@ -117,38 +102,6 @@ exports.handler = async (event) => {
       return { statusCode: 200, body: 'missing from' };
     }
 
-    // ---- guard storage: fail CLOSED if unavailable ----
-    // Lambda-compatibility functions must initialise the Blobs environment
-    // from the event before getStore() will work.
-    let store;
-    try {
-      connectLambda(event);
-      store = getStore({ name: 'welcome-log', consistency: 'strong' });
-    } catch (e) {
-      console.error('Guard storage unavailable; NOT sending. Submission is still saved in Netlify Forms.', e);
-      return { statusCode: 200, body: 'guard unavailable' };
-    }
-
-    const cap = Math.max(1, parseInt(process.env.WELCOME_DAILY_CAP || '25', 10) || 25);
-    const sentKey = 'sent:' + to;
-    const dayKey = 'count:' + todayKey();
-
-    // one welcome per address, ever
-    if (await store.get(sentKey)) {
-      console.log('Skipped: already welcomed ' + to);
-      return { statusCode: 200, body: 'already welcomed' };
-    }
-    // hard daily ceiling
-    const used = parseInt((await store.get(dayKey)) || '0', 10) || 0;
-    if (used >= cap) {
-      console.error('Daily welcome cap reached (' + cap + '). Skipping email for ' + to + '. Submission is still saved.');
-      return { statusCode: 200, body: 'daily cap' };
-    }
-
-    // reserve the slot BEFORE sending, so a burst cannot overshoot the cap
-    await store.set(dayKey, String(used + 1));
-    await store.set(sentKey, new Date().toISOString());
-
     const isFarm = formName === 'farm-enrollment';
     const msg = isFarm ? farmEmail(name) : restaurantEmail(name);
 
@@ -172,7 +125,7 @@ exports.handler = async (event) => {
       console.error('Resend failed', res.status, text);
       return { statusCode: 200, body: 'resend error logged' };
     }
-    console.log('Welcome sent', formName, to, '(' + (used + 1) + '/' + cap + ' today)');
+    console.log('Welcome sent', formName, to);
     return { statusCode: 200, body: 'sent' };
   } catch (err) {
     console.error('submission-created error', err);
