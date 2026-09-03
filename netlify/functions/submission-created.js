@@ -3,17 +3,33 @@
 // Netlify calls this automatically after a VERIFIED form submission.
 // No changes to your HTML are needed. Nothing here is visible to the browser.
 //
+// SAFETY NET (all enforced server-side, cannot be bypassed from the page):
+//   - One welcome email per address, ever. A repeat submission from the same
+//     address is logged and ignored, so the form cannot be used to flood
+//     someone's inbox.
+//   - Hard daily cap on welcome emails (default 25). Beyond it, submissions
+//     are still saved in Netlify Forms; only the email is skipped.
+//   - Email address is validated before anything is sent.
+//   - Fails CLOSED: if the guard storage is unavailable, no email is sent.
+//   - Every submission is still stored by Netlify and still notifies you.
+//
 // SETUP (all in the Netlify dashboard, no terminal):
 //   1. Site configuration > Environment variables > Add:
 //        RESEND_API_KEY   = your Resend key
 //        DLH_FROM         = the From line for welcome emails,
 //                           formatted as:  Name <address@yourdomain>
+//        WELCOME_DAILY_CAP = 25   (optional; omit to use the default)
 //      That domain must be VERIFIED in Resend or sends will fail.
 //
-//      Do NOT paste either value into this file. Netlify scans the repo
-//      for env var values and will fail the build if it finds them.
-//   2. Deploy. Netlify auto-detects the netlify/functions folder.
-//   3. Test the form. Check the function log under Logs > Functions.
+//      Do NOT paste any of these values into this file. Netlify scans the
+//      repo for env var values and will fail the build if it finds them.
+//
+//   2. A package.json must exist at the repo root listing @netlify/blobs
+//      (provided alongside this file). Netlify installs it during the build.
+//   3. Deploy. Netlify auto-detects the netlify/functions folder.
+//   4. Test the form. Check the function log under Logs > Functions.
+
+const { getStore } = require('@netlify/blobs');
 
 const ESC = (s) =>
   String(s == null ? '' : s)
@@ -52,6 +68,7 @@ function farmEmail(name) {
 <p style="margin:0 0 14px;">I want to be transparent about where things stand. The network is still in its early stages. A small number of farms and kitchens are currently enrolled, and there is not yet enough volume on either side to support weekly ordering. That will change as enrollment grows. By signing up now, you are among the first, and I will notify you as soon as restaurants are ready to purchase what you post.</p>
 <p style="margin:0 0 14px;">I will be in touch within the next day or two to learn more about what you grow and to complete your setup. There is no cost to participate and no obligation to post.</p>
 <p style="margin:0 0 14px;">If any part of this does not align with how your operation works, please let me know.</p>
+<p style="margin:0 0 14px;">If you did not submit this request, please disregard this message.</p>
 <p style="margin:0;">Sincerely,</p>`)
   };
 }
@@ -67,8 +84,15 @@ function restaurantEmail(name) {
 <p style="margin:0 0 14px;">I want to be transparent about where things stand. The network is still in its early stages. I am actively enrolling farms, and there is not yet enough supply to support a full weekly order. That will change as enrollment grows. By signing up now, you are among the first, and I will notify you as soon as there is enough available to be worth your time. Until then, this is intended to supplement your existing sourcing, not replace it.</p>
 <p style="margin:0 0 14px;">I will be in touch within the next day or two to learn what you would want from local farms and to complete your setup. There is no cost to sign up, no minimums, and no commitment.</p>
 <p style="margin:0 0 14px;">If any part of this does not align with how your kitchen operates, please let me know.</p>
+<p style="margin:0 0 14px;">If you did not submit this request, please disregard this message.</p>
 <p style="margin:0;">Sincerely,</p>`)
   };
+}
+
+const EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
+
+function todayKey() {
+  return new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
 }
 
 exports.handler = async (event) => {
@@ -77,12 +101,12 @@ exports.handler = async (event) => {
     const payload = body.payload || {};
     const data = payload.data || {};
     const formName = payload.form_name || data['form-name'] || '';
-    const to = (data.email || '').trim();
-    const name = (data.contact_name || '').trim().split(/\s+/)[0] || '';
+    const to = String(data.email || '').trim().toLowerCase();
+    const name = String(data.contact_name || '').trim().split(/\s+/)[0] || '';
 
-    if (!to) {
-      console.log('No email field on submission; nothing sent. form=' + formName);
-      return { statusCode: 200, body: 'no recipient' };
+    if (!to || !EMAIL_RE.test(to) || to.length > 254) {
+      console.log('Rejected: invalid or missing email. form=' + formName);
+      return { statusCode: 200, body: 'invalid recipient' };
     }
     if (!process.env.RESEND_API_KEY) {
       console.error('RESEND_API_KEY is not set');
@@ -92,6 +116,35 @@ exports.handler = async (event) => {
       console.error('DLH_FROM is not set - add it in Netlify environment variables');
       return { statusCode: 200, body: 'missing from' };
     }
+
+    // ---- guard storage: fail CLOSED if unavailable ----
+    let store;
+    try {
+      store = getStore({ name: 'welcome-log', consistency: 'strong' });
+    } catch (e) {
+      console.error('Guard storage unavailable; NOT sending. Submission is still saved in Netlify Forms.', e);
+      return { statusCode: 200, body: 'guard unavailable' };
+    }
+
+    const cap = Math.max(1, parseInt(process.env.WELCOME_DAILY_CAP || '25', 10) || 25);
+    const sentKey = 'sent:' + to;
+    const dayKey = 'count:' + todayKey();
+
+    // one welcome per address, ever
+    if (await store.get(sentKey)) {
+      console.log('Skipped: already welcomed ' + to);
+      return { statusCode: 200, body: 'already welcomed' };
+    }
+    // hard daily ceiling
+    const used = parseInt((await store.get(dayKey)) || '0', 10) || 0;
+    if (used >= cap) {
+      console.error('Daily welcome cap reached (' + cap + '). Skipping email for ' + to + '. Submission is still saved.');
+      return { statusCode: 200, body: 'daily cap' };
+    }
+
+    // reserve the slot BEFORE sending, so a burst cannot overshoot the cap
+    await store.set(dayKey, String(used + 1));
+    await store.set(sentKey, new Date().toISOString());
 
     const isFarm = formName === 'farm-enrollment';
     const msg = isFarm ? farmEmail(name) : restaurantEmail(name);
@@ -116,7 +169,7 @@ exports.handler = async (event) => {
       console.error('Resend failed', res.status, text);
       return { statusCode: 200, body: 'resend error logged' };
     }
-    console.log('Welcome sent', formName, to, text);
+    console.log('Welcome sent', formName, to, '(' + (used + 1) + '/' + cap + ' today)');
     return { statusCode: 200, body: 'sent' };
   } catch (err) {
     console.error('submission-created error', err);
