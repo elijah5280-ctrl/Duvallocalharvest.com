@@ -90,6 +90,47 @@
   .btn-ghost{background:transparent;color:var(--forest);border:1.5px solid var(--line)}
   .btn-ghost:hover{border-color:var(--gold-soft)}
 
+  /* ── JUMP NAV (Apple 5.0) ──
+     Sticky bar under the hero. Scrolls with the page, pins to the top once reached.
+     z-index sits above Leaflet's map controls (which use 1000). */
+  .jump{
+    position:sticky;top:0;z-index:1200;
+    background:rgba(250,246,238,.94);
+    border-bottom:1px solid var(--line);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  }
+  .jump-in{
+    max-width:1080px;margin:0 auto;padding:0 12px;
+    display:flex;gap:2px;overflow-x:auto;white-space:nowrap;
+    scrollbar-width:none;
+  }
+  .jump-in::-webkit-scrollbar{display:none}
+  /* auto margins centre the links when they fit, and collapse to 0 when they overflow on a phone,
+     so the bar scrolls sideways instead of clipping the first link */
+  .jump a:first-child{margin-left:auto}
+  .jump a:last-child{margin-right:auto}
+  .jump a{
+    flex:0 0 auto;padding:14px 14px;
+    font-size:13.5px;letter-spacing:.04em;color:var(--forest);text-decoration:none;
+    border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease;
+  }
+  .jump a:hover{color:var(--gold);border-bottom-color:var(--gold-soft)}
+  .jump a:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+  .jump a.jump-join{color:var(--gold)}
+  .jump a[aria-current]{color:var(--gold);border-bottom-color:var(--gold)}
+  @media(max-width:640px){.jump a{padding:12px 11px;font-size:13px}}
+  /* jump targets land just below the bar instead of under it */
+  section[id]{scroll-margin-top:58px}
+
+  /* ── TABS (Apple 5.1) ──
+     Only the panel(s) for the current tab show. Inactive panels are collapsed to zero height
+     rather than display:none, so the Leaflet map inside the Farms panel keeps its real width and
+     height and initialises correctly while off-screen. body.tabs is set by script, so with
+     JavaScript off every section shows as before. */
+  body.tabs section[data-tab]:not(.is-on){
+    height:0;padding:0;margin:0;border:0;overflow:hidden;visibility:hidden;
+  }
+
   /* ── THE LOOP (signature) ── */
   .loop-sec{background:var(--cream)}
   .sec-head{text-align:center;max-width:60ch;margin:0 auto 54px}
@@ -354,6 +395,19 @@
   .season-note b{color:var(--forest-deep)}
   @media(max-width:640px){.season-tab{padding:8px 14px;font-size:13px}.season-head h3{font-size:23px}}
 
+  /* ── RESOURCES (Apple 5.2) ── */
+  .res-sec{background:var(--cream);border-top:1px solid var(--line)}
+  .res-list{list-style:none;margin:0;padding:0}
+  .res-list li{margin-top:16px}
+  .res-list li:first-child{margin-top:0}
+  .res-list a{
+    font-size:16px;color:var(--forest-deep);text-decoration:underline;
+    text-decoration-color:var(--gold-soft);text-underline-offset:3px;
+  }
+  .res-list a:hover{color:var(--gold)}
+  .res-list p{margin-top:4px}
+  .res-from{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+
   /* ── CLOSING ── */
   .close-sec{background:var(--forest-deep);color:#EAF0E0;text-align:center;padding:80px 24px}
   .close-sec h2{font-size:clamp(26px,4vw,40px);color:#fff;max-width:20ch;margin:0 auto 20px}
@@ -396,10 +450,27 @@
   <p class="hero-sub">Connecting Duval County's farms, restaurants, and food recovery — starting in Riverside.</p>
 </header>
 
-<!-- ═══════════════ THE LOOP ═══════════════ -->
+<!-- ═══════════════ TAB BAR ═══════════════ -->
+<!-- Each link opens one tab. A tab is every <section data-tab="..."> with that name —
+     "problem" is three sections shown together. The first link is the default tab on load.
+     To add a tab: put data-tab="name" on the section, id="name" on the first one, add one <a> here.
+     Delete the "Tiki dinner" link when the event section comes out; "How it works" becomes the default. -->
+<nav class="jump" aria-label="Page sections">
+  <div class="jump-in">
+    <a href="#event">Tiki dinner</a>
+    <a href="#how">How it works</a>
+    <a href="#problem">The problem</a>
+    <a href="#farms">Farms</a>
+    <a href="#season">In season</a>
+    <a href="#resources">Resources</a>
+    <a class="jump-join" href="#join">Join</a>
+  </div>
+</nav>
+<script>document.body.classList.add('tabs');</script>
+
 <!-- ═══════════════ EVENT ═══════════════ -->
-<!-- Remove or replace this whole section after 23 September 2026. -->
-<section class="event-sec">
+<!-- Remove or replace this whole section after 23 September 2026 — and delete the "Tiki dinner" link in the jump nav above. -->
+<section class="event-sec" id="event" data-tab="event">
   <div class="wrap">
     <div class="event-grid">
       <div class="reveal">
@@ -458,7 +529,7 @@
   </div>
 </section>
 
-<section class="loop-sec" id="how">
+<section class="loop-sec" id="how" data-tab="how">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">One loop, closed</div>
@@ -515,7 +586,7 @@
 </section>
 
 <!-- ═══════════════ THE GAP ═══════════════ -->
-<section class="gap-sec">
+<section class="gap-sec" id="problem" data-tab="problem">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">The gap</div>
@@ -549,7 +620,7 @@
 </section>
 
 <!-- ═══════════════ SORT SURPLUS ═══════════════ -->
-<section class="sort-sec">
+<section class="sort-sec" data-tab="problem">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">The recovery strategy</div>
@@ -613,7 +684,7 @@
 </section>
 
 <!-- ═══════════════ GROUNDED ═══════════════ -->
-<section class="proof-sec">
+<section class="proof-sec" data-tab="problem">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">Grounded in what works</div>
@@ -634,7 +705,7 @@
 </section>
 
 <!-- ═══════════════ FARM NETWORK ═══════════════ -->
-<section class="farms-sec">
+<section class="farms-sec" id="farms" data-tab="farms">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">The network</div>
@@ -672,7 +743,7 @@
 </section>
 
 <!-- ═══════════════ SEASONAL CALENDAR ═══════════════ -->
-<section class="season-sec">
+<section class="season-sec" id="season" data-tab="season">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">The growing calendar</div>
@@ -690,8 +761,67 @@
   </div>
 </section>
 
+<!-- ═══════════════ RESOURCES ═══════════════ -->
+<!-- Three cards: partner farms, compost, UF/IFAS growing guides.
+     To add a link: copy one <li> ... </li> inside the right card and change the href, the name and the line under it.
+     To add a card: copy a whole <div class="card"> ... </div>. Every link here is somebody else's site. -->
+<section class="res-sec" id="resources" data-tab="resources">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Resources</div>
+      <h2>Links we actually use</h2>
+      <p>Other people's work, linked and credited, not copied. If one of these goes dead, tell us.</p>
+    </div>
+
+    <div class="cards3 reveal">
+      <div class="card">
+        <h3>Partner farms</h3>
+        <ul class="res-list">
+          <li>
+            <a href="https://earthasfarmandmarket.org" target="_blank" rel="noopener">Eartha&rsquo;s Farm &amp; Market</a>
+            <p>A 10.5-acre regenerative urban farm in historic Moncrief Springs, an initiative of the Clara White Mission &mdash; produce, a market, workshops and youth programs. A partner pin on our Farms tab.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Compost</h3>
+        <ul class="res-list">
+          <li>
+            <a href="https://linktr.ee/FarmboyJames" target="_blank" rel="noopener">Farm Boy James</a>
+            <p>James Weston and his sister run a community compost program that collects food waste and turns it into soil for gardens and schools. His Linktree gathers the program, his compost guide and his channel.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="res-from">UF/IFAS Extension</div>
+        <h3>Growing guides</h3>
+        <ul class="res-list">
+          <li>
+            <a href="https://gardeningsolutions.ifas.ufl.edu/infographics-collection/text-version-of-what-to-plant-by-month/" target="_blank" rel="noopener">What to plant, month by month</a>
+            <p>Every month&rsquo;s fruits and vegetables for North, Central and South Florida on one page. We&rsquo;re the North column.</p>
+          </li>
+          <li>
+            <a href="https://edis.ifas.ufl.edu/publication/EP451" target="_blank" rel="noopener">North Florida Gardening Calendar</a>
+            <p>What to plant and what to do in the garden each month, for our zone. Ask IFAS publication EP451.</p>
+          </li>
+          <li>
+            <a href="https://gardeningsolutions.ifas.ufl.edu/plants/edibles/vegetables/vegetable-gardening-in-florida/" target="_blank" rel="noopener">Vegetable Gardening in Florida</a>
+            <p>Their series of in-depth articles on starting a vegetable garden from scratch.</p>
+          </li>
+          <li>
+            <a href="https://sfyl.ifas.ufl.edu/find-your-local-office/" target="_blank" rel="noopener">Find your county Extension office</a>
+            <p>IFAS says its edible planting dates are being reviewed; the county office has the current advice.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════ JOIN ═══════════════ -->
-<section class="join-sec" id="join" hidden>
+<section class="join-sec" id="join" hidden data-tab="join">
   <style>
     .join-sec{background:var(--cream);padding:80px 24px}
     .join-sec[hidden]{display:none}
@@ -897,6 +1027,54 @@
   </script>
 </section>
 
+<!-- ═══════════════ TABS ═══════════════ -->
+<script>
+  // One tab at a time. The tab bar's links pick which; sections opt in with data-tab="...".
+  // Runs here, after the last tabbed section and before the map script.
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.jump a[href^="#"]'));
+    var secs  = Array.prototype.slice.call(document.querySelectorAll('section[data-tab]'));
+    if(!links.length || !secs.length) return;
+    var known = {};
+    secs.forEach(function(s){ known[s.getAttribute('data-tab')] = true; });
+    var current = null;
+
+    function show(id){
+      if(!known[id] || id === current) return false;
+      current = id;
+      secs.forEach(function(s){
+        var on = s.getAttribute('data-tab') === id;
+        s.classList.toggle('is-on', on);
+        if(on){
+          if(s.hidden) s.hidden = false;   // the join form starts hidden in the HTML
+          Array.prototype.forEach.call(s.querySelectorAll('.reveal'), function(e){ e.classList.add('in'); });
+        }
+      });
+      links.forEach(function(a){
+        if(a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+      return true;
+    }
+
+    var first = links[0].getAttribute('href').slice(1);
+    var start = location.hash.slice(1);
+    show(known[start] ? start : first);
+
+    // Switch panels before the browser follows the link, so the jump lands on the panel that is open.
+    // Catches the tab bar, the "Join the network" button in the closing section, and any other #link.
+    document.addEventListener('click', function(e){
+      var a = (e.target && e.target.closest) ? e.target.closest('a[href^="#"]') : null;
+      if(a) show(a.getAttribute('href').slice(1));
+    });
+    // Back/forward buttons: switch, then bring the panel into view.
+    window.addEventListener('hashchange', function(){
+      var id = location.hash.slice(1);
+      if(show(id)){ var t = document.getElementById(id); if(t && t.scrollIntoView) t.scrollIntoView({block:'start'}); }
+    });
+  })();
+</script>
+
 
 <!-- ═══════════════ CLOSING ═══════════════ -->
 <section class="close-sec">
@@ -917,7 +1095,7 @@
     </div>
   </div>
   <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
-  <div class="site-version">Duval Local Harvest · Apple 4.9</div>
+  <div class="site-version">Duval Local Harvest · Apple 5.2</div>
 </section>
 
 <script>
