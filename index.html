@@ -6,7 +6,7 @@
 <title>Duval Local Harvest — Good food. Stronger community.</title>
 <meta name="description" content="Connecting Duval County's farms, restaurants, and food recovery — so local food moves the way it should and edible surplus feeds people, not landfills. Starting in Riverside, Jacksonville.">
 <meta name="theme-color" content="#2E4A34">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' https://unpkg.com; style-src 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.basemaps.cartocdn.com; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' https://unpkg.com; style-src 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- Social preview: uses your logo. Works once the image file is uploaded next to this page. -->
 <meta property="og:title" content="Duval Local Harvest">
@@ -1138,7 +1138,7 @@
     </div>
   </div>
   <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
-  <div class="site-version">Duval Local Harvest · Apple 6.1</div>
+  <div class="site-version">Duval Local Harvest · Apple 6.2</div>
 </section>
 
 <script>
@@ -1331,9 +1331,9 @@
     }
     el.innerHTML = '';
     map = L.map(el, {scrollWheelZoom:false}).setView([30.42, -81.72], 9);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom:19, subdomains:'abcd',
-      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:19,
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     map.on('click', function(){ map.scrollWheelZoom.enable(); });
     drawMarkers(visible());
