@@ -738,6 +738,7 @@
       <span><i style="background:#8A6B3F"></i>Nursery</span>
       <span><i style="background:#3F6B7A"></i>Farm stand</span>
         <span><i style="background:#8C2F2F"></i>Meat &amp; dairy</span>
+        <span><i style="background:#22384A"></i>Food recovery</span>
     </div>
     <div class="farm-status" id="farm-status"></div>
     <div class="farm-grid reveal" id="farm-grid"></div>
@@ -1138,7 +1139,7 @@
     </div>
   </div>
   <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
-  <div class="site-version">Duval Local Harvest · Apple 6.2</div>
+  <div class="site-version">Duval Local Harvest · Apple 6.3</div>
 </section>
 
 <script>
@@ -1228,7 +1229,7 @@
   var open = {};                // farm name -> expanded, survives re-renders
   var map = null, markers = [];
 
-  var PIN = {produce:'#2E4A34', greens:'#4B7F52', fruit:'#7A3B5D', honey:'#A6761D', nursery:'#8A6B3F', stand:'#3F6B7A', meat:'#8C2F2F', flowers:'#C4577F'};
+  var PIN = {produce:'#2E4A34', greens:'#4B7F52', fruit:'#7A3B5D', honey:'#A6761D', nursery:'#8A6B3F', stand:'#3F6B7A', meat:'#8C2F2F', foodbank:'#22384A', flowers:'#C4577F'};
 
   function miles(a, b){
     var R = 3958.8, toRad = Math.PI/180;
@@ -1267,7 +1268,7 @@
       h += '<span class="farm-tag">' + esc(f.area) + ' &middot; ' + esc(f.county) + '</span>';
       if(f.partner) h += '<span class="farm-tag gold">Partner farm</span>';
       if(f._mi != null) h += '<span class="farm-tag dist">' + f._mi.toFixed(1) + ' mi away</span>';
-      h += '<span class="farm-tag">' + f.grows.length + ' crop' + (f.grows.length === 1 ? '' : 's') + '</span>';
+      if(f.cat === 'foodbank') h += '<span class="farm-tag">Food recovery</span>'; else h += '<span class="farm-tag">' + f.grows.length + ' crop' + (f.grows.length === 1 ? '' : 's') + '</span>';
       h += '</div><div class="farm-body"><p>' + esc(f.note) + '</p><div class="farm-grows">';
       h += f.grows.map(function(g){ return '<span>' + esc(g) + '</span>'; }).join('');
       return h + '</div></div></div>';
@@ -1282,8 +1283,8 @@
       });
     });
     var st = document.getElementById('farm-status');
-    if(st) st.textContent = list.length + (list.length === 1 ? ' farm' : ' farms') +
-      (here ? ', nearest first' : '');
+    if(st){ var fb = list.filter(function(f){ return f.cat === 'foodbank'; }).length; var fm = list.length - fb;
+      st.textContent = fm + (fm === 1 ? ' farm' : ' farms') + (fb ? ' \u00b7 ' + fb + (fb === 1 ? ' food bank' : ' food banks') : '') + (here ? ', nearest first' : ''); }
     if(map) drawMarkers(list);
   }
 
