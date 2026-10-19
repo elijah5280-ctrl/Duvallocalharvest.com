@@ -920,6 +920,9 @@
     .join-done h3{font-family:'Young Serif',Georgia,serif;font-size:24px;color:var(--forest-deep);margin:0 0 10px}
     .join-done p{color:var(--muted);font-size:16px;margin:0}
     .join-err{color:#8C2F2F;font-size:14px;margin-top:12px;text-align:center}
+    .join-go h3{font-family:'Young Serif',Georgia,serif;font-size:24px;color:var(--forest-deep);margin:0 0 10px}
+    .join-go p{color:var(--muted);font-size:16px;margin:0 0 12px}
+    a.join-submit{display:block;text-align:center;text-decoration:none;box-sizing:border-box;margin-top:18px}
     @media(max-width:640px){.join-sec{padding:60px 18px}.join-card{padding:22px 18px}}
   </style>
 
@@ -936,159 +939,30 @@
       <button class="join-tab" id="join-tab-shop" role="tab" aria-selected="false" aria-controls="join-panel-shop" type="button">I manage a shop</button>
     </div>
 
-    <!-- ── RESTAURANT ── -->
+    <!-- ── Apply on the DLH app (Apple 7.6, Oct 19 2026): the forms used to email Elijah; now each button opens the app's own application, which lands on the admin page and emails the sign-in code on approval ── -->
     <div class="join-panel" id="join-panel-rest" role="tabpanel" aria-labelledby="join-tab-rest">
-      <form name="restaurant-enrollment" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="join-card join-form">
-        <input type="hidden" name="form-name" value="restaurant-enrollment">
-        <p class="join-hp"><label>Skip this field <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-
-        <div class="join-field">
-          <label for="jr-biz">Restaurant name</label>
-          <input id="jr-biz" name="restaurant" type="text" required autocomplete="organization">
-        </div>
-        <div class="join-field">
-          <label for="jr-name">Your name</label>
-          <input id="jr-name" name="contact_name" type="text" required autocomplete="name">
-        </div>
-        <div class="join-field">
-          <label for="jr-email">Email</label>
-          <input id="jr-email" name="email" type="email" required autocomplete="email" inputmode="email">
-        </div>
-        <div class="join-field">
-          <label for="jr-phone">Phone <span class="join-opt">(optional)</span></label>
-          <input id="jr-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
-        </div>
-        <div class="join-field">
-          <label for="jr-loc">Neighborhood or address</label>
-          <input id="jr-loc" name="location" type="text" required>
-          <div class="join-help">So farms know where a delivery would go.</div>
-        </div>
-        <div class="join-field">
-          <label for="jr-want">What would you want from local farms? <span class="join-opt">(optional)</span></label>
-          <textarea id="jr-want" name="interested_in" placeholder="Produce, herbs, eggs, protein — whatever you're after"></textarea>
-        </div>
-        <div class="join-field">
-          <label for="jr-notes">Anything else <span class="join-opt">(optional)</span></label>
-          <textarea id="jr-notes" name="notes"></textarea>
-        </div>
-
-        <button type="submit" class="join-submit">Join as a kitchen</button>
-        <p class="join-foot">No cost to join, no commitment. I follow up personally &mdash; your details stay with Duval Local Harvest and are never sold or shared.</p>
-        <p class="join-err" hidden></p>
-      </form>
+      <div class="join-card join-go">
+        <h3>Kitchens and restaurants</h3>
+        <p>See what local farms have this week, order it, and have it delivered. Free to join.</p><p>Applying takes a minute: your business name, your email, and a line about what you’re after.</p>
+        <a class="join-submit" href="https://duvallocalharvest.app/market.html?apply">Apply as a kitchen</a>
+        <p class="join-foot">DLH looks every application over and emails your sign-in code, usually within a day. Your details stay with Duval Local Harvest and are never sold or shared.</p>
+      </div>
     </div>
-
-    <!-- ── FARM ── -->
     <div class="join-panel" id="join-panel-farm" role="tabpanel" aria-labelledby="join-tab-farm" hidden>
-      <form name="farm-enrollment" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="join-card join-form">
-        <input type="hidden" name="form-name" value="farm-enrollment">
-        <p class="join-hp"><label>Skip this field <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-
-        <div class="join-field">
-          <label for="jf-farm">Farm name</label>
-          <input id="jf-farm" name="farm" type="text" required autocomplete="organization">
-        </div>
-        <div class="join-field">
-          <label for="jf-name">Your name</label>
-          <input id="jf-name" name="contact_name" type="text" required autocomplete="name">
-        </div>
-        <div class="join-field">
-          <label for="jf-email">Email</label>
-          <input id="jf-email" name="email" type="email" required autocomplete="email" inputmode="email">
-        </div>
-        <div class="join-field">
-          <label for="jf-phone">Phone <span class="join-opt">(optional)</span></label>
-          <input id="jf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
-        </div>
-        <div class="join-field">
-          <label for="jf-loc">Where's the farm?</label>
-          <input id="jf-loc" name="location" type="text" required placeholder="City and county">
-        </div>
-        <div class="join-field">
-          <label for="jf-grow">What do you grow or raise?</label>
-          <textarea id="jf-grow" name="what_you_grow" required placeholder="Crops, eggs, honey, meat — whatever you sell"></textarea>
-        </div>
-        <div class="join-field">
-          <label for="jf-del">Can you deliver to a restaurant? <span class="join-opt">(optional)</span></label>
-          <select id="jf-del" name="delivery">
-            <option value="">Select one</option>
-            <option>Yes, I deliver</option>
-            <option>Pickup at the farm only</option>
-            <option>Depends on the order</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="join-field">
-          <label for="jf-notes">Anything else <span class="join-opt">(optional)</span></label>
-          <textarea id="jf-notes" name="notes"></textarea>
-        </div>
-
-        <button type="submit" class="join-submit">Join as a farm</button>
-        <p class="join-foot">Free to join. You set your own prices and post only what you actually have. Your details stay with Duval Local Harvest and are never sold or shared.</p>
-        <p class="join-err" hidden></p>
-      </form>
+      <div class="join-card join-go">
+        <h3>Farms</h3>
+        <p>Post what you have, at your price. Restaurants order it and DLH picks it up and delivers. Free to join.</p><p>Applying takes a minute: your farm’s name, your email, and where you are and what you grow.</p>
+        <a class="join-submit" href="https://duvallocalharvest.app/?apply">Apply as a farm</a>
+        <p class="join-foot">You set your own prices and post only what you have. DLH looks every application over and emails your sign-in code, usually within a day.</p>
+      </div>
     </div>
-
-    <!-- ── SHOP / RETAIL (Apple 7.5) ── -->
     <div class="join-panel" id="join-panel-shop" role="tabpanel" aria-labelledby="join-tab-shop" hidden>
-      <form name="retail-enrollment" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="join-card join-form">
-        <input type="hidden" name="form-name" value="retail-enrollment">
-        <p class="join-hp"><label>Skip this field <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-
-        <div class="join-field">
-          <label for="js-biz">Shop name</label>
-          <input id="js-biz" name="shop" type="text" required autocomplete="organization">
-        </div>
-        <div class="join-field">
-          <label for="js-name">Your name</label>
-          <input id="js-name" name="contact_name" type="text" required autocomplete="name">
-        </div>
-        <div class="join-field">
-          <label for="js-email">Email</label>
-          <input id="js-email" name="email" type="email" required autocomplete="email" inputmode="email">
-        </div>
-        <div class="join-field">
-          <label for="js-phone">Phone <span class="join-opt">(optional)</span></label>
-          <input id="js-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
-        </div>
-        <div class="join-field">
-          <label for="js-loc">Neighborhood or address</label>
-          <input id="js-loc" name="location" type="text" required>
-          <div class="join-help">So farms know where a delivery would go.</div>
-        </div>
-        <div class="join-field">
-          <label for="js-kind">What kind of shop?</label>
-          <select id="js-kind" name="shop_type" required>
-            <option value="">Select one</option>
-            <option>Grocery or market</option>
-            <option>Specialty food</option>
-            <option>Caf&eacute; or coffee shop</option>
-            <option>Gift or general store</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="join-field">
-          <label for="js-cold">Do you have refrigeration for produce?</label>
-          <select id="js-cold" name="refrigeration" required>
-            <option value="">Select one</option>
-            <option>Yes</option>
-            <option>Some, not much</option>
-            <option>No, shelf only</option>
-          </select>
-        </div>
-        <div class="join-field">
-          <label for="js-want">What would you want from local farms? <span class="join-opt">(optional)</span></label>
-          <textarea id="js-want" name="interested_in" placeholder="Produce, herbs, honey, plants &mdash; whatever you'd put on the shelf"></textarea>
-        </div>
-        <div class="join-field">
-          <label for="js-notes">Anything else <span class="join-opt">(optional)</span></label>
-          <textarea id="js-notes" name="notes"></textarea>
-        </div>
-
-        <button type="submit" class="join-submit">Join as a shop</button>
-        <p class="join-foot">No cost to join, no commitment. I follow up personally &mdash; your details stay with Duval Local Harvest and are never sold or shared.</p>
-        <p class="join-err" hidden></p>
-      </form>
+      <div class="join-card join-go">
+        <h3>Shops and markets</h3>
+        <p>Grocers, specialty food shops and cafés order from the same board as the kitchens, with delivery. Free to join.</p><p>Applying takes a minute: your shop’s name, your email, and a line about what you’d stock.</p>
+        <a class="join-submit" href="https://duvallocalharvest.app/market.html?apply">Apply as a shop</a>
+        <p class="join-foot">DLH looks every application over and emails your sign-in code, usually within a day. Your details stay with Duval Local Harvest and are never sold or shared.</p>
+      </div>
     </div>
   </div>
 
@@ -1226,7 +1100,7 @@
   </div>
   <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
   <div class="snail-foot"><img src="data:image/png;base64,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" alt="">Slow Food Snail of Approval &middot; 2026</div>
-  <div class="site-version">Duval Local Harvest · Apple 7.5</div>
+  <div class="site-version">Duval Local Harvest · Apple 7.6</div>
 </section>
 
 <script>
