@@ -473,10 +473,10 @@
 <!-- Each link opens one tab. A tab is every <section data-tab="..."> with that name —
      "problem" is three sections shown together. The first link is the default tab on load.
      To add a tab: put data-tab="name" on the section, id="name" on the first one, add one <a> here.
-     Delete the "Fall dinner" link when the event section comes out; "How it works" becomes the default. -->
+     Delete the "Solstice dinner" link when the event section comes out; "How it works" becomes the default. -->
 <nav class="jump" aria-label="Page sections">
   <div class="jump-in">
-    <a href="#event">Fall dinner</a>
+    <a href="#event">Solstice dinner</a>
     <a href="#how">How it works</a>
     <a href="#problem">The problem</a>
     <a href="#farms">Network</a>
@@ -488,37 +488,40 @@
 <script>document.body.classList.add('tabs');</script>
 
 <!-- ═══════════════ EVENT ═══════════════ -->
-<!-- Remove or replace this whole section after 17 November 2026 — and delete the "Fall dinner" link in the jump nav above. -->
+<!-- December Solstice Dinner at Eartha's (Apple 8.0, Nov 19 2026). It replaced the Fall Harvest Dinner of 17 November.
+     The date, the time and how to reserve were not set when this went up. When they are, fill them in at the lines
+     marked DATE below. Remove or replace this whole section after the dinner, and delete the "Solstice dinner" link
+     in the jump nav above. -->
 <section class="event-sec" id="event" data-tab="event">
   <div class="wrap">
     <div class="event-grid">
       <div class="reveal">
-        <div class="event-date">Tuesday 17 November &middot; 6:30pm</div>
-        <h2>Fall Harvest Dinner</h2>
-        <p class="lede" style="color:var(--gold-soft);margin-bottom:20px">Five courses at Riverside Liquors &mdash; local farms, local spirits.</p>
-        <p class="lede">Mid-November is the best eating of the Northeast Florida year. The cool-season fields are full &mdash; greens, roots, brassicas &mdash; the first citrus is coming off the trees, and the coast is at its sweetest. One table, one seating, cooked from what the farms on this network are pulling that week.</p>
+        <div class="event-date">December &middot; date coming soon</div><!-- DATE -->
+        <h2>December Solstice Dinner</h2>
+        <p class="lede" style="color:var(--gold-soft);margin-bottom:20px">Four courses, farm to table, at Eartha&rsquo;s Farm &amp; Market &mdash; farm tour included.</p>
+        <p class="lede">Eartha&rsquo;s is a 10.5-acre urban farm in Moncrief Springs, run by the Clara White Mission. The evening is a tour of the farm and a four-course, farm-to-table meal.</p>
         <div class="event-facts">
-          <span><b>Tue 17 Nov</b>one night</span>
-          <span><b>6:30pm</b>one seating</span>
-          <span><b>$120</b>per person</span>
+          <span><b>$100</b>per person</span>
+          <span><b>4 courses</b>farm to table</span>
+          <span><b>Farm tour</b>included</span>
         </div>
-        <p class="fine">$120 before tax and gratuity, paired. The menu is written close to the date &mdash; it moves with the harvest. Seats are limited and the last two dinners sold out.</p>
+        <p class="fine">The date, the time and how to reserve are coming soon.</p><!-- DATE -->
         <span class="event-cta">
-          <a class="btn btn-gold" href="mailto:restaurantinriverside@gmail.com?subject=Reservation%20%E2%80%94%20Fall%20Harvest%20Dinner%2017%20Nov">Reserve a seat</a>
-          <a class="btn btn-outline-light" href="https://www.instagram.com/duvallocalharvest" target="_blank" rel="noopener">Follow for the menu</a>
+          <a class="btn btn-gold" href="mailto:elijah@duvallocalharvest.com?subject=December%20Solstice%20Dinner">Ask about a seat</a>
+          <a class="btn btn-outline-light" href="https://www.instagram.com/duvallocalharvest" target="_blank" rel="noopener">Follow for the date</a>
         </span>
       </div>
       <div class="reveal">
         <div class="event-flyer" style="background:#233B2B;color:#FAF6EE;font-family:'Young Serif',Georgia,serif;text-align:center;padding:48px 24px;line-height:1.25;border-top:3px solid #B4622E">
-          <div style="font-size:12px;letter-spacing:.14em;color:#D9C48E">DUVAL LOCAL HARVEST &middot; RIVERSIDE LIQUORS</div>
-          <div style="font-size:34px;margin-top:14px;letter-spacing:.03em">Fall Harvest Dinner</div>
-          <div style="font-size:15px;margin-top:10px;color:#EAF0E0">Tuesday 17 November &middot; 6:30pm</div>
-          <div style="font-size:15px;margin-top:4px;color:#EAF0E0">Five courses, paired &middot; $120</div>
-          <div style="font-size:12px;margin-top:18px;color:#C6D4BC;letter-spacing:.03em">Reserve: RestaurantInRiverside@gmail.com</div>
+          <div style="font-size:12px;letter-spacing:.14em;color:#D9C48E">DUVAL LOCAL HARVEST &middot; EARTHA&rsquo;S FARM &amp; MARKET</div>
+          <div style="font-size:34px;margin-top:14px;letter-spacing:.03em">December Solstice Dinner</div>
+          <div style="font-size:15px;margin-top:10px;color:#EAF0E0">Four courses, farm to table &middot; $100</div>
+          <div style="font-size:15px;margin-top:4px;color:#EAF0E0">Farm tour included</div>
+          <div style="font-size:12px;margin-top:18px;color:#C6D4BC;letter-spacing:.03em">Date and reservations coming soon</div><!-- DATE -->
         </div>
         <div class="event-menu">
-        <div class="glabel">What's ripe that week</div>
-        <p class="fine" style="margin-bottom:18px">The menu gets written close to the date, from whatever the fields and the coast are actually giving up. Here's what the Northeast Florida calendar says is in season in mid-November:</p>
+        <div class="glabel">What's ripe in December</div>
+        <p class="fine" style="margin-bottom:18px">The menu is still to come. Here's what the Northeast Florida calendar says is in season in December:</p>
         <div class="event-chips">
           <span>Collards</span>
           <span>Kale</span>
@@ -533,11 +536,7 @@
           <span>Pecans</span>
           <span>Datil peppers</span>
           <span>Winter squash</span>
-          <span>Shrimp</span>
-          <span>Oysters</span>
         </div>
-        <div class="glabel" style="margin-top:26px;margin-bottom:10px">Poured with</div>
-        <p class="fine">Cocktails built on Northeast Florida distillers rather than imported bottles. Every course is paired, and water is poured throughout.</p>
         </div>
       </div>
     </div>
@@ -1106,7 +1105,7 @@
   </div>
   <!-- VERSION (bump every deploy) · fruit/veg scheme, alphabetical, this site's own sequence -->
   <div class="snail-foot"><img src="data:image/png;base64,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" alt="">Slow Food Snail of Approval &middot; 2026</div>
-  <div class="site-version">Duval Local Harvest · Apple 7.9</div>
+  <div class="site-version">Duval Local Harvest · Apple 8.0</div>
 </section>
 
 <script>
